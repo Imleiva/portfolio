@@ -42,6 +42,7 @@ const ProjectDetails = () => {
       demoLink: "#", // Aquí irá el enlace al proyecto funcionando
       codeLink: "#", // Aquí irá el enlace al código en GitHub
       status: t("portfolio.status.completed", "Completado"),
+      hasDemoAvailable: false, // Cuando esté lista, solo tengo que cambiar a true
     },
     "leiva-roll": {
       title: t("portfolio.project2.title"),
@@ -61,6 +62,7 @@ const ProjectDetails = () => {
       demoLink: "#", // Enlace para probar el proyecto
       codeLink: "#", // Enlace al repositorio de código
       status: t("portfolio.status.development", "En desarrollo"),
+      hasDemoAvailable: false, // Cambiar a true cuando esté disponible
     },
     noahverso: {
       title: t("portfolio.project3.title"),
@@ -80,6 +82,7 @@ const ProjectDetails = () => {
       demoLink: "#", // Aquí se pondrá el enlace de descarga o demo
       codeLink: "#", // Repositorio del código del juego
       status: t("portfolio.status.development", "En desarrollo"),
+      hasDemoAvailable: false, // Cambiar cuando la demo esté lista
     },
   };
 
@@ -127,14 +130,23 @@ const ProjectDetails = () => {
             </p>
 
             <div className="project-actions">
-              <a
-                href={project.demoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                🚀 {t("portfolio.viewDemo", "Ver Demo")}
-              </a>
+              {project.hasDemoAvailable ? (
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  🚀 {t("portfolio.viewDemo", "Ver Demo")}
+                </a>
+              ) : (
+                <Link
+                  to={`/coming-soon/${encodeURIComponent(project.title)}`}
+                  className="btn btn-primary"
+                >
+                  🚀 {t("portfolio.viewDemo", "Ver Demo")}
+                </Link>
+              )}
               {/* El botón "Ver Código" está oculto por ahora hasta tener los repositorios listos
               <a
                 href={project.codeLink}

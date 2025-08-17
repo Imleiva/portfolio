@@ -1,0 +1,347 @@
+/* ComingSoon.css - Página "En construcción" con estilo del portfolio */
+
+.coming-soon {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-family);
+  background: var(--background-gradient, var(--background-color));
+  padding: var(--space-6);
+  margin-top: 2rem;
+}
+
+.coming-soon__container {
+  text-align: center;
+  z-index: 2;
+  max-width: 700px;
+  width: 100%;
+}
+
+.coming-soon__content {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-16) var(--space-12);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  transition: transform var(--transition-normal);
+}
+
+.coming-soon__content:hover {
+  transform: translateY(-2px);
+}
+
+@supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
+  .coming-soon__content {
+    background: var(--glass-bg);
+  }
+}
+
+/* Título principal con herramienta */
+.coming-soon__title {
+  font-size: clamp(var(--font-size-4xl), 8vw, var(--font-size-5xl));
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  margin-bottom: var(--space-4);
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite, fadeInUp 0.8s ease-out 0.2s both;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.coming-soon__icon {
+  font-size: 0.8em;
+  filter: drop-shadow(0 4px 8px rgba(88, 41, 167, 0.15));
+  /* Sobrescribir el efecto de texto transparente del padre */
+  -webkit-text-fill-color: initial;
+  background: none;
+  color: var(--primary-color);
+  transform: scaleX(-1); /* Voltear horizontalmente */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Subtítulo del proyecto */
+.coming-soon__subtitle {
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
+  color: var(--text-secondary);
+  margin: var(--space-4) 0 var(--space-12);
+  font-weight: 600;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Barra de progreso */
+.coming-soon__progress {
+  margin: var(--space-12) 0;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.progress-fill {
+  width: 85%;
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  position: relative;
+  animation: progress-pulse 2s ease-in-out infinite;
+}
+
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes progress-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleY(0.95);
+  }
+}
+
+.progress-text {
+  color: var(--text-light);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+/* Descripción */
+.coming-soon__description {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  margin: var(--space-8) 0 var(--space-12);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--space-6);
+  background: var(--surface-gradient);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+  white-space: pre-line; /* Para que respete los \n en el texto */
+}
+
+/* Botones con estilo del portfolio */
+.coming-soon__actions {
+  display: flex;
+  gap: var(--space-6);
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 1s both;
+}
+
+.coming-soon .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  transition: all var(--transition-normal);
+  border: none;
+  cursor: pointer;
+  min-width: 200px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon .btn-primary {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.coming-soon .btn-primary:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.coming-soon .btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.coming-soon .btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Efecto shimmer para botones */
+.coming-soon .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--shimmer);
+  transition: left var(--transition-slow);
+}
+
+.coming-soon .btn:hover::before {
+  left: 100%;
+}
+
+/* Modo oscuro */
+.dark-theme .coming-soon {
+  background: var(--background-gradient);
+}
+
+.dark-theme .coming-soon::before {
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(151, 223, 252, 0.04) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(115, 100, 210, 0.03) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(133, 138, 227, 0.02) 1px,
+      transparent 1px
+    );
+}
+
+.dark-theme .coming-soon__content {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+
+.dark-theme .coming-soon__description {
+  background: rgba(26, 21, 53, 0.6);
+  border-color: var(--border-color);
+}
+
+.dark-theme .progress-bar {
+  background: var(--border-color);
+}
+
+/* Efecto shimmer específico para modo oscuro con lila oscuro */
+.dark-theme .progress-fill::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(115, 100, 210, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .coming-soon {
+    padding: var(--space-4);
+  }
+
+  .coming-soon__content {
+    padding: var(--space-12) var(--space-6);
+  }
+
+  .coming-soon__animation {
+    gap: var(--space-4);
+  }
+
+  .gear {
+    font-size: var(--font-size-4xl);
+  }
+
+  .coming-soon__actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .coming-soon .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .coming-soon__description {
+    font-size: var(--font-size-base);
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .coming-soon__content {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .gear {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

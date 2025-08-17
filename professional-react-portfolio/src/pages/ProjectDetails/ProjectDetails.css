@@ -285,4 +285,105 @@
   .features-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Centrar secciones en móviles */
+  .project-section {
+    text-align: center;
+  }
+
+  .project-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .project-section h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .technologies-grid {
+    justify-content: center;
+  }
+
+  .features-grid {
+    text-align: left;
+  }
+
+  .screenshots-placeholder {
+    text-align: center;
+  }
+}
+
+/* Para pantallas extra pequeñas (móviles estrechos) */
+@media (max-width: 480px) {
+  .project-details {
+    padding: 0.75rem;
+    margin-top: 70px;
+  }
+
+  .project-hero {
+    gap: 1.5rem;
+  }
+
+  .project-hero-image {
+    width: 250px;
+    height: 170px;
+    margin: 0 auto;
+  }
+
+  .project-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .project-hero-description {
+    font-size: 1rem;
+  }
+
+  /* Asegurar centrado en pantallas muy pequeñas */
+  .project-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .project-section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-section h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+  }
+
+  .technologies-grid {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .tech-badge-large {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .features-grid {
+    gap: 0.75rem;
+  }
+
+  .feature-item {
+    padding: 0.75rem;
+    text-align: left; /* Contenido interno alineado a la izquierda */
+    margin: 0 auto; /* Centrar la tarjeta en sí */
+  }
+
+  .screenshots-placeholder {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .project-details .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 }

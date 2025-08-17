@@ -165,6 +165,22 @@ const Header = () => {
                         {t("nav.portfolio")}
                       </Link>
                     </motion.li>
+                    <motion.li
+                      className="header__nav-item"
+                      variants={itemVariants}
+                    >
+                      <Link
+                        to="/blog"
+                        className={`header__nav-link ${
+                          location.pathname === "/blog"
+                            ? "header__nav-link--active"
+                            : ""
+                        }`}
+                        onClick={closeMobileMenu}
+                      >
+                        {t("nav.blog")}
+                      </Link>
+                    </motion.li>
                   </motion.ul>
                 )}
               </AnimatePresence>

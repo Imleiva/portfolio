@@ -16,6 +16,7 @@ const resources = {
       "nav.home": "Inicio",
       "nav.about": "Sobre Mí",
       "nav.portfolio": "Portfolio",
+      "nav.blog": "Blog",
 
       // Home Page
       "home.greeting": "Hola, soy",
@@ -126,6 +127,21 @@ const resources = {
       "portfolio.status.development": "En desarrollo",
       "portfolio.status.completed": "Completado",
 
+      // Coming Soon Page
+      "comingSoon.title": "¡Próximamente!",
+      "comingSoon.description":
+        "🚀 Actualmente trabajando en este proyecto.\n¡Estará disponible muy pronto!",
+      "comingSoon.progress": "Desarrollando... 85%",
+      "comingSoon.backToProjects": "← Ver otros proyectos",
+
+      // Not Found Page
+      "notFound.number": "404",
+      "notFound.title": "¡Ups! Página perdida",
+      "notFound.description":
+        "🧭 Parece que navegaste hacia una dimensión alternativa donde esta página no existe. ¡Pero no te preocupes, tengo muchas cosas geniales que mostrarte!",
+      "notFound.backHome": "🏠 Volver al inicio",
+      "notFound.viewProjects": "✨ Ver mis proyectos",
+
       // Common
       name: "Ana Leiva",
     },
@@ -136,6 +152,7 @@ const resources = {
       "nav.home": "Home",
       "nav.about": "About",
       "nav.portfolio": "Portfolio",
+      "nav.blog": "Blog",
 
       // Home Page
       "home.greeting": "Hi, I'm",
@@ -244,6 +261,21 @@ const resources = {
       "portfolio.projectNotFound": "Project not found",
       "portfolio.status.development": "In development",
       "portfolio.status.completed": "Completed",
+
+      // Coming Soon Page
+      "comingSoon.title": "Coming Soon!",
+      "comingSoon.description":
+        "🚀 Currently working on this project.\nIt will be available very soon!",
+      "comingSoon.progress": "Developing... 85%",
+      "comingSoon.backToProjects": "← View other projects",
+
+      // Not Found Page
+      "notFound.number": "404",
+      "notFound.title": "Oops! Page Lost",
+      "notFound.description":
+        "🧭 It seems you navigated to an alternate dimension where this page doesn't exist. But don't worry, I have many amazing things to show you!",
+      "notFound.backHome": "🏠 Back to home",
+      "notFound.viewProjects": "✨ View my projects",
 
       // Common
       name: "Ana Leiva",
