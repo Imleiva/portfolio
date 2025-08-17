@@ -7,7 +7,7 @@
  */
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -20,7 +20,7 @@ import "./styles/global.css";
 const App = () => {
   return (
     <ThemeProvider>
-      <Router basename="/portfolio">
+      <Router>
         <div className="app">
           <Header />
           {/* El contenido principal*/}

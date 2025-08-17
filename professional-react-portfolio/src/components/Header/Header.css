@@ -205,17 +205,13 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--accent-color)
-  );
+  background: linear-gradient(135deg, var(--color-7), var(--accent-color));
   transition: var(--transition-normal);
   transform: translateX(-50%);
 }
 
 .header__nav-link:hover {
-  color: var(--primary-color);
+  color: var(--color-4); /* Azul púrpura - más contraste */
 }
 
 .header__nav-link:hover::after,
@@ -224,7 +220,7 @@
 }
 
 .header__nav-link--active {
-  color: var(--primary-color);
+  color: var(--color-4); /* Púrpura azul - favorito absoluto */
   font-weight: 600;
 }
 
@@ -366,21 +362,23 @@
   .header__nav-link:hover {
     background: linear-gradient(
       135deg,
-      rgba(115, 100, 210, 0.08) 0%,
-      rgba(151, 223, 252, 0.05) 100%
+      rgba(142, 181, 240, 0.12) 0%,
+      /* --color-3 con opacidad */ rgba(133, 138, 227, 0.08) 100%
+        /* --color-4 con opacidad */
     );
     transform: translateX(8px);
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid var(--color-4); /* Azul púrpura */
   }
 
   .header__nav-link--active {
     background: linear-gradient(
       135deg,
-      rgba(115, 100, 210, 0.12) 0%,
-      rgba(151, 223, 252, 0.08) 100%
+      rgba(142, 181, 240, 0.15) 0%,
+      /* --color-3 más intenso */ rgba(115, 100, 210, 0.12) 100%
+        /* --color-5 con opacidad */
     );
-    color: var(--primary-color);
-    border-left: 3px solid var(--primary-color);
+    color: var(--color-5); /* Púrpura azul - favorito */
+    border-left: 3px solid var(--color-5);
     font-weight: 600;
   }
 
@@ -393,20 +391,22 @@
   .dark-theme .header__nav-link:hover {
     background: linear-gradient(
       135deg,
-      rgba(151, 223, 252, 0.08) 0%,
-      rgba(115, 100, 210, 0.05) 100%
+      rgba(142, 181, 240, 0.1) 0%,
+      /* --color-3 suave para tema oscuro */ rgba(133, 138, 227, 0.06) 100%
+        /* --color-4 sutil */
     );
-    border-left-color: var(--accent-color);
+    border-left-color: var(--color-3); /* Azul medio para mejor contraste */
   }
 
   .dark-theme .header__nav-link--active {
     background: linear-gradient(
       135deg,
-      rgba(151, 223, 252, 0.12) 0%,
-      rgba(115, 100, 210, 0.08) 100%
+      rgba(151, 223, 252, 0.15) 0%,
+      /* --color-1 más visible - color del título */ rgba(115, 100, 210, 0.1)
+        100% /* --color-5 con opacidad */
     );
-    border-left-color: var(--accent-color);
-    color: var(--accent-color);
+    border-left-color: var(--color-1); /* Azul cielo - como el título h1 */
+    color: var(--color-1);
   }
 
   .header__nav-link::after {
