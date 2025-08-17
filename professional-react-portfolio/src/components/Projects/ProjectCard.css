@@ -1,0 +1,339 @@
+.project-card {
+  background: var(--card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  position: relative;
+  min-height: 450px; /* Cambio de height a min-height para permitir crecimiento */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mejora para tema oscuro - fondo de tarjeta más suave */
+.dark-theme .project-card,
+[data-theme="dark"] .project-card,
+body.dark-theme .project-card {
+  background: linear-gradient(
+      135deg,
+      rgba(53, 45, 75, 0.4) 0%,
+      rgba(32, 30, 59, 0.6) 100%
+    ),
+    var(--card-background) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Mejora para tema claro - fondo de tarjeta más cálido */
+:not(.dark-theme) .project-card {
+  background: linear-gradient(
+      135deg,
+      rgba(247, 243, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.9) 100%
+    ),
+    var(--card-background);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-warm);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: none;
+  border-color: var(--accent-light);
+}
+
+/* Mejora hover específica para tema claro */
+:not(.dark-theme) .project-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(115, 100, 210, 0.2);
+  transform: translateY(-2px);
+}
+
+.project-card:hover::before {
+  opacity: 0.02;
+}
+
+.project-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--project-logo-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Mejora específica para tema oscuro - fondo más suave para logos */
+.dark-theme .project-image-container,
+[data-theme="dark"] .project-image-container,
+body.dark-theme .project-image-container {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 45, 75, 0.3) 0%,
+    rgba(32, 30, 59, 0.5) 100%
+  ) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Mejora específica para tema claro - fondo más suave para logos */
+:not(.dark-theme) .project-image-container {
+  background: linear-gradient(
+    135deg,
+    rgba(248, 251, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.project-image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(151, 223, 252, 0.05),
+    rgba(61, 14, 97, 0.05)
+  );
+  transition: opacity 0.3s ease;
+  opacity: 0; /* Por defecto invisible */
+}
+
+.project-card:hover .project-image-container::after {
+  opacity: 1; /* Solo aparece en hover */
+}
+
+.project-image {
+  width: 170%;
+  height: 170%;
+  object-fit: contain; /* Cambiado de 'cover' a 'contain' para que se ajuste mejor */
+  object-position: center;
+  transition: transform 0.3s ease;
+  padding: 1rem; /* Añadimos padding para dar espacio alrededor del logo */
+}
+
+/* Estilo específico para logos SVG que pueden ser más grandes */
+.project-image[src*=".svg"] {
+  padding: 0.2rem; /* Padding mínimo para SVGs */
+  max-width: 130%; /* Permite que sea mucho más grande */
+  max-height: 130%;
+  width: 130%;
+  height: 130%;
+}
+
+/* Estilo específico para el logo de Noahverso - más pequeño */
+.project-image[src*="Noahverso.svg"] {
+  padding: 1rem; /* Más padding para Noahverso */
+  max-width: 100%; /* Más pequeño que otros SVGs */
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mejoras específicas para logos en tema oscuro */
+.dark-theme .project-image[src*="MomMatch"] {
+  filter: brightness(0.9) contrast(0.95);
+  padding: 1.2rem;
+}
+
+.dark-theme .project-image[src*="LeivanRoll"] {
+  filter: brightness(1.1) saturate(1.2);
+  padding: 0.1rem;
+  width: 135%;
+  height: 135%;
+}
+
+.dark-theme .project-image[src*="Noahverso"] {
+  filter: brightness(1.15) contrast(1.1);
+  padding: 0.8rem;
+  width: 105%;
+  height: 105%;
+}
+
+/* Mejoras específicas para logos en tema claro */
+:not(.dark-theme) .project-image[src*="MomMatch"] {
+  filter: brightness(1.05) contrast(0.9) saturate(1.1)
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  padding: 1rem;
+}
+
+:not(.dark-theme) .project-image[src*="LeivanRoll"] {
+  filter: brightness(1.1) saturate(1.3) contrast(1.05)
+    drop-shadow(0 2px 6px rgba(88, 41, 167, 0.15));
+  padding: 0.1rem;
+  width: 140%;
+  height: 140%;
+}
+
+:not(.dark-theme) .project-image[src*="Noahverso"] {
+  filter: brightness(1.1) contrast(1.15) saturate(1.2)
+    drop-shadow(0 3px 8px rgba(0, 0, 0, 0.12));
+  padding: 0.9rem;
+  width: 110%;
+  height: 110%;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.02); /* Reducido de 1.05 a 1.02 para ser más sutil */
+}
+
+.project-content {
+  padding: 1.5rem;
+  flex: 1; /* Ocupa el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido uniformemente */
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.4rem;
+}
+
+/* Mejora para títulos en tema oscuro */
+.dark-theme .project-title,
+[data-theme="dark"] .project-title,
+body.dark-theme .project-title {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}
+
+/* Mejora para títulos en tema claro */
+:not(.dark-theme) .project-title {
+  color: rgba(45, 55, 75, 0.95);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.project-description {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  flex: 1; /* Permite que la descripción crezca si es necesario */
+}
+
+/* Mejora para descripción en tema oscuro */
+.dark-theme .project-description,
+[data-theme="dark"] .project-description,
+body.dark-theme .project-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Mejora para descripción en tema claro */
+:not(.dark-theme) .project-description {
+  color: rgba(75, 85, 105, 0.85);
+  line-height: 1.6;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.project-link {
+  display: inline-block;
+  background: var(--gradient-primary);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  text-align: center;
+  width: 100%;
+  justify-self: end;
+}
+
+.project-link:hover {
+  transform: none;
+  box-shadow: none;
+  background: linear-gradient(
+    135deg,
+    rgba(115, 100, 210, 0.95) 0%,
+    rgba(88, 41, 167, 0.95) 100%
+  );
+  color: white;
+  opacity: 0.9;
+}
+
+/* Mejora específica para botones en tema oscuro */
+.dark-theme .project-link {
+  background: linear-gradient(
+    135deg,
+    rgba(115, 100, 210, 0.8) 0%,
+    rgba(88, 41, 167, 0.8) 100%
+  );
+  border: 1px solid rgba(115, 100, 210, 0.3);
+}
+
+.dark-theme .project-link:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(115, 100, 210, 0.9) 0%,
+    rgba(88, 41, 167, 0.9) 100%
+  );
+  border-color: rgba(115, 100, 210, 0.5);
+  opacity: 1;
+}
+
+/* Mejora específica para botones en tema claro */
+:not(.dark-theme) .project-link {
+  background: linear-gradient(
+    135deg,
+    rgba(115, 100, 210, 0.85) 0%,
+    rgba(88, 41, 167, 0.85) 100%
+  );
+  border: 1px solid rgba(115, 100, 210, 0.2);
+  box-shadow: 0 2px 8px rgba(88, 41, 167, 0.15), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+:not(.dark-theme) .project-link:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(115, 100, 210, 0.95) 0%,
+    rgba(88, 41, 167, 0.95) 100%
+  );
+  border-color: rgba(115, 100, 210, 0.4);
+  box-shadow: 0 4px 12px rgba(88, 41, 167, 0.2), 0 2px 6px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    min-height: 380px; /* Cambio de height a min-height también en móviles */
+  }
+
+  .project-content {
+    padding: 1rem;
+    text-align: center; /* Centro todos los textos en móviles */
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+}

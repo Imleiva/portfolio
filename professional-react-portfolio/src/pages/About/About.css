@@ -1,0 +1,326 @@
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-8) var(--space-8);
+  margin-top: 100px;
+  min-height: calc(100vh - 140px);
+  position: relative;
+}
+
+.about h1 {
+  font-size: var(--font-size-4xl);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: -3rem;
+  margin-bottom: var(--space-8);
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contenido principal */
+.about__content {
+  max-width: 1100px;
+  margin: 0 auto var(--space-16);
+  text-align: center;
+}
+
+.about__content p {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+  background: var(--card-bg);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0rem;
+}
+
+.about__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Sección de intereses personales */
+.about__personal {
+  margin-top: var(--space-20);
+  margin-bottom: var(--space-16);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sección de contenido principal (izquierda) */
+.about__content-section {
+  position: relative;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Sección de intereses personales (derecha) */
+.about__interests-section {
+  position: relative;
+  background: var(--card-bg);
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+}
+
+.about__personal-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-12);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.about__personal-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.about__personal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.personal-card {
+  background: var(--card-bg);
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.personal-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(151, 223, 252, 0.02) 0%,
+    rgba(115, 100, 210, 0.02) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.personal-card:hover {
+  border-color: rgba(151, 223, 252, 0.3);
+  box-shadow: 0 8px 32px rgba(151, 223, 252, 0.1);
+  transform: translateY(-2px);
+}
+
+.personal-card:hover::before {
+  opacity: 1;
+}
+
+.personal-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  background: var(--surface-color);
+  border-radius: var(--radius-full);
+  font-size: 2.2rem;
+  border: 2px solid var(--border-color);
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+.personal-card:hover .personal-card__icon {
+  transform: scale(1.05);
+  border-color: rgba(151, 223, 252, 0.4);
+  background: rgba(151, 223, 252, 0.05);
+}
+
+/* Efectos más suaves y uniformes para todas las tarjetas */
+.personal-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+  line-height: 1.2;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.personal-card:hover .personal-card__title {
+  color: var(--primary-color);
+}
+
+.personal-card__description {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+  font-size: var(--font-size-base);
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Mejoras para modo oscuro - más sutiles */
+.dark-theme .personal-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(151, 223, 252, 0.15);
+}
+
+.dark-theme .personal-card:hover {
+  border-color: rgba(151, 223, 252, 0.4);
+  box-shadow: 0 8px 32px rgba(151, 223, 252, 0.15);
+}
+
+.dark-theme .personal-card::before {
+  background: linear-gradient(
+    135deg,
+    rgba(151, 223, 252, 0.03) 0%,
+    rgba(115, 100, 210, 0.03) 100%
+  );
+}
+
+.dark-theme .personal-card__icon {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(151, 223, 252, 0.2);
+}
+
+.dark-theme .personal-card:hover .personal-card__icon {
+  border-color: rgba(151, 223, 252, 0.5);
+  background: rgba(151, 223, 252, 0.08);
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 1rem 1rem 0.5rem;
+    margin-top: 80px;
+  }
+
+  .about h1 {
+    font-size: 2rem;
+    margin-top: -1.1rem; /* Ajuste igual que en Portfolio */
+  }
+
+  .about__content p {
+    font-size: var(--font-size-base);
+    padding: var(--space-4);
+  }
+
+  .about__personal {
+    margin-top: var(--space-16);
+  }
+
+  .about__personal-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-8);
+  }
+
+  .about__personal-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 500px;
+  }
+
+  .personal-card {
+    padding: var(--space-6);
+    min-height: 200px;
+  }
+
+  .personal-card__icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    margin-bottom: var(--space-5);
+  }
+
+  .personal-card__title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .personal-card__description {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .about__personal-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    max-width: 400px;
+  }
+
+  .personal-card {
+    padding: var(--space-5);
+    min-height: 180px;
+  }
+
+  .personal-card__icon {
+    width: 65px;
+    height: 65px;
+    font-size: 1.8rem;
+  }
+
+  .personal-card__title {
+    font-size: var(--font-size-base);
+  }
+
+  .personal-card__description {
+    font-size: var(--font-size-sm);
+  }
+}

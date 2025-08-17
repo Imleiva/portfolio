@@ -1,0 +1,33 @@
+.language-toggle {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  transition: var(--transition-fast);
+  background-color: var(--card-bg);
+}
+
+.language-toggle:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.language-toggle__content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.language-toggle:hover .language-toggle__content {
+  color: white;
+}
+
+.language-toggle__text {
+  min-width: 20px;
+  text-align: center;
+}
