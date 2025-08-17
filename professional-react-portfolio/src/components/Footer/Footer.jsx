@@ -7,6 +7,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Mail, Heart, Github, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import "./Footer.css";
@@ -36,9 +37,9 @@ const Footer = () => {
 
   // Enlaces rápidos para navegación fácil
   const quickLinks = [
-    { name: t("nav.home"), href: "/" },
-    { name: t("nav.about"), href: "/about" },
-    { name: t("nav.portfolio"), href: "/portfolio" },
+    { name: t("nav.home"), to: "/" },
+    { name: t("nav.about"), to: "/about" },
+    { name: t("nav.portfolio"), to: "/portfolio" },
   ];
 
   return (
@@ -79,9 +80,9 @@ const Footer = () => {
             <ul className="footer__links">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="footer__link">
+                  <Link to={link.to} className="footer__link">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
