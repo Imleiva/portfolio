@@ -7,7 +7,7 @@ import "./ProjectDetails.css";
 
 // Importamos las imágenes de los proyectos
 import momMatchLogo from "../../assets/images/projects/MomMatch.webp";
-import leivaRollLogo from "../../assets/images/projects/LeivanRoll.svg";
+import leivaRollLogo from "../../assets/images/projects/LeivanRoll.png";
 import noahVersoLogo from "../../assets/images/projects/Noahverso.svg";
 
 const ProjectDetails = () => {
@@ -39,10 +39,10 @@ const ProjectDetails = () => {
         t("portfolio.project1.feature3", "Perfiles de usuario personalizables"),
         t("portfolio.project1.feature4", "Sistema de recomendaciones"),
       ],
-      demoLink: "#", // Aquí irá el enlace al proyecto funcionando
-      codeLink: "#", // Aquí irá el enlace al código en GitHub
+      demoLink: "#",
+      codeLink: "#", // Enlace al código en GitHub
       status: t("portfolio.status.completed", "Completado"),
-      hasDemoAvailable: false, // Cuando esté lista, solo tengo que cambiar a true
+      hasDemoAvailable: false, // Cuando esté ok, cambiar a true
     },
     "leiva-roll": {
       title: t("portfolio.project2.title"),
@@ -59,10 +59,10 @@ const ProjectDetails = () => {
         t("portfolio.project2.feature3", "Interfaz responsive"),
         t("portfolio.project2.feature4", "Integración con APIs musicales"),
       ],
-      demoLink: "#", // Enlace para probar el proyecto
-      codeLink: "#", // Enlace al repositorio de código
+      demoLink: "https://imleiva.github.io/musicmuseum/", // Enlace para probar el proyecto
+      codeLink: "https://github.com/Imleiva/musicmuseum", // Enlace al repositorio de código
       status: t("portfolio.status.development", "En desarrollo"),
-      hasDemoAvailable: false, // Cambiar a true cuando esté disponible
+      hasDemoAvailable: true,
     },
     noahverso: {
       title: t("portfolio.project3.title"),
