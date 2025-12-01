@@ -49,15 +49,36 @@ const ProjectDetails = () => {
       description: t("portfolio.project2.description"),
       longDescription: t(
         "portfolio.project2.longDescription",
-        "Museo digital interactivo que recopila y presenta más de 500 reseñas musicales del reconocido crítico Maese Leiva. Incluye sistema de búsqueda avanzada, filtros por género y año, y reproductor de música integrado."
+        "Museo digital interactivo que celebra la historia de la música a través de una colección curada de más de 500 reseñas musicales del reconocido crítico Maese Leiva. Ofrece una experiencia inmersiva con un diseño visual atractivo, un sistema de búsqueda avanzada, filtros dinámicos por género, año y artista, y un reproductor de música integrado que permite explorar canciones destacadas. Además, incluye secciones interactivas como galerías de pósters de conciertos, avatares personalizados y datos curiosos sobre bandas y artistas."
       ),
-      image: logoLRHF, // Actualizamos el logo
-      technologies: ["React", "Vite", "CSS3", "JavaScript", "API REST"],
+      image: logoLRHF,
+      technologies: [
+        "React",
+        "Vite",
+        "CSS3",
+        "JavaScript",
+        "Three.js",
+        "API REST",
+      ],
       features: [
-        t("portfolio.project2.feature1", "Búsqueda avanzada de reseñas"),
-        t("portfolio.project2.feature2", "Filtros por género y año"),
-        t("portfolio.project2.feature3", "Interfaz responsive"),
-        t("portfolio.project2.feature4", "Integración con APIs musicales"),
+        t(
+          "portfolio.project2.feature1",
+          "Búsqueda avanzada y filtros dinámicos"
+        ),
+        t(
+          "portfolio.project2.feature2",
+          "Galerías interactivas de pósters y avatares"
+        ),
+        t("portfolio.project2.feature3", "Reproductor de música integrado"),
+        t("portfolio.project2.feature4", "Datos curiosos y trivia musical"),
+        t(
+          "portfolio.project2.feature5",
+          "Interfaz responsive y optimizada para dispositivos móviles"
+        ),
+        t(
+          "portfolio.project2.feature6",
+          "Integración con APIs de música y datos culturales"
+        ),
       ],
       demoLink: "https://imleiva.github.io/musicmuseum/", // Enlace a la demo
       codeLink: "https://github.com/Imleiva/musicmuseum", // Enlace al repositorio
