@@ -64,10 +64,10 @@
   padding: 0.5rem;
 }
 
-/* Leiva'n Roll - Logo SVG con guitarra */
-.project-hero-image img[src*="LeivanRoll"] {
-  width: 160%;
-  height: 160%;
+/* Leiva'n Roll */
+.project-hero-image img[src*="logoLRHF"] {
+  width: 120%;
+  height: 120%;
   padding: 0.2rem;
 }
 
