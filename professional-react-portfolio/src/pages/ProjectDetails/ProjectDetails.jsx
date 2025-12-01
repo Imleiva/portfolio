@@ -7,7 +7,7 @@ import "./ProjectDetails.css";
 
 // Importamos las imágenes de los proyectos
 import momMatchLogo from "../../assets/images/projects/MomMatch.webp";
-import leivaRollLogo from "../../assets/images/projects/LeivanRoll.png";
+import logoLRHF from "../../assets/images/projects/logoLRHF.svg";
 import noahVersoLogo from "../../assets/images/projects/Noahverso.svg";
 
 const ProjectDetails = () => {
@@ -51,7 +51,7 @@ const ProjectDetails = () => {
         "portfolio.project2.longDescription",
         "Museo digital interactivo que recopila y presenta más de 500 reseñas musicales del reconocido crítico Maese Leiva. Incluye sistema de búsqueda avanzada, filtros por género y año, y reproductor de música integrado."
       ),
-      image: leivaRollLogo,
+      image: logoLRHF, // Actualizamos el logo
       technologies: ["React", "Vite", "CSS3", "JavaScript", "API REST"],
       features: [
         t("portfolio.project2.feature1", "Búsqueda avanzada de reseñas"),
@@ -59,9 +59,9 @@ const ProjectDetails = () => {
         t("portfolio.project2.feature3", "Interfaz responsive"),
         t("portfolio.project2.feature4", "Integración con APIs musicales"),
       ],
-      demoLink: "https://imleiva.github.io/musicmuseum/", // Enlace para probar el proyecto
-      codeLink: "https://github.com/Imleiva/musicmuseum", // Enlace al repositorio de código
-      status: t("portfolio.status.development", "En desarrollo"),
+      demoLink: "https://imleiva.github.io/musicmuseum/", // Enlace a la demo
+      codeLink: "https://github.com/Imleiva/musicmuseum", // Enlace al repositorio
+      status: t("portfolio.status.completed", "Completado"),
       hasDemoAvailable: true,
     },
     noahverso: {
