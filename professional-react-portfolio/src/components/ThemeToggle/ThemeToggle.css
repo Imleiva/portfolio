@@ -5,6 +5,8 @@
   padding: var(--space-2);
   border-radius: var(--radius-full);
   transition: var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
 }
 
 .theme-toggle:hover {
