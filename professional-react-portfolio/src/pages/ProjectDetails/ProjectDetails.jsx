@@ -11,13 +11,13 @@ import logoLRHF from "../../assets/images/projects/logoLRHF.png";
 import noahVersoLogo from "../../assets/images/projects/Noahverso.svg";
 
 // Importamos las capturas de pantalla de Leiva'n Roll
-import cp1 from "../../assets/images/screenshots/leivanrock/cp1.png";
-import cp2 from "../../assets/images/screenshots/leivanrock/cp2.png";
-import cp3 from "../../assets/images/screenshots/leivanrock/cp3.png";
-import cp4 from "../../assets/images/screenshots/leivanrock/cp4.png";
-import cp5 from "../../assets/images/screenshots/leivanrock/cp5.png";
-import cp6 from "../../assets/images/screenshots/leivanrock/cp6.png";
-import cp7 from "../../assets/images/screenshots/leivanrock/cp7.png";
+import desktop1 from "../../assets/images/screenshots/leivanrock/desktop1.png";
+import desktop2 from "../../assets/images/screenshots/leivanrock/desktop2.png";
+import desktop3 from "../../assets/images/screenshots/leivanrock/desktop3.png";
+import desktop4 from "../../assets/images/screenshots/leivanrock/desktop4.png";
+import desktop5 from "../../assets/images/screenshots/leivanrock/desktop5.png";
+import mobile1 from "../../assets/images/screenshots/leivanrock/mobile1.png";
+import mobile2 from "../../assets/images/screenshots/leivanrock/mobile2.png";
 
 const ProjectDetails = () => {
   const { slug } = useParams();
@@ -238,37 +238,37 @@ const ProjectDetails = () => {
         {slug === "leiva-roll" ? (
           <div className="screenshots-grid">
             <img
-              src={cp1}
-              alt="Leiva'n Roll Hall of Fame - Screenshot 1"
+              src={desktop1}
+              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 1"
               className="screenshot-desktop"
             />
             <img
-              src={cp2}
-              alt="Leiva'n Roll Hall of Fame - Screenshot 2"
+              src={desktop2}
+              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 2"
               className="screenshot-desktop"
             />
             <img
-              src={cp3}
-              alt="Leiva'n Roll Hall of Fame - Screenshot 3"
+              src={desktop3}
+              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 3"
               className="screenshot-desktop"
             />
             <img
-              src={cp4}
-              alt="Leiva'n Roll Hall of Fame - Screenshot 4"
+              src={desktop4}
+              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 4"
               className="screenshot-desktop"
             />
             <img
-              src={cp5}
-              alt="Leiva'n Roll Hall of Fame - Screenshot 5"
+              src={desktop5}
+              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 5"
               className="screenshot-desktop"
             />
             <img
-              src={cp6}
+              src={mobile1}
               alt="Leiva'n Roll Hall of Fame - Mobile Screenshot 1"
               className="screenshot-mobile"
             />
             <img
-              src={cp7}
+              src={mobile2}
               alt="Leiva'n Roll Hall of Fame - Mobile Screenshot 2"
               className="screenshot-mobile"
             />
