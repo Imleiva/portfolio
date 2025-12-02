@@ -10,6 +10,15 @@ import momMatchLogo from "../../assets/images/projects/MomMatch.webp";
 import logoLRHF from "../../assets/images/projects/logoLRHF.svg";
 import noahVersoLogo from "../../assets/images/projects/Noahverso.svg";
 
+// Importamos las capturas de pantalla de Leiva'n Roll
+import cp1 from "../../assets/images/screenshots/leivanrock/cp1.png";
+import cp2 from "../../assets/images/screenshots/leivanrock/cp2.png";
+import cp3 from "../../assets/images/screenshots/leivanrock/cp3.png";
+import cp4 from "../../assets/images/screenshots/leivanrock/cp4.png";
+import cp5 from "../../assets/images/screenshots/leivanrock/cp5.png";
+import cp6 from "../../assets/images/screenshots/leivanrock/cp6.png";
+import cp7 from "../../assets/images/screenshots/leivanrock/cp7.png";
+
 const ProjectDetails = () => {
   const { slug } = useParams();
   const { t } = useTranslation();
@@ -218,7 +227,7 @@ const ProjectDetails = () => {
         </div>
       </motion.section>
 
-      {/* Sección de capturas de pantalla - pendiente de implementar */}
+      {/* Sección de capturas de pantalla */}
       <motion.section
         className="project-section"
         initial={{ opacity: 0, y: 20 }}
@@ -226,14 +235,54 @@ const ProjectDetails = () => {
         transition={{ delay: 0.4, duration: 0.5 }}
       >
         <h2>{t("portfolio.screenshots", "Capturas de pantalla")}</h2>
-        <div className="screenshots-placeholder">
-          <p>
-            {t(
-              "portfolio.screenshotsComingSoon",
-              "Capturas de pantalla próximamente..."
-            )}
-          </p>
-        </div>
+        {slug === "leiva-roll" ? (
+          <div className="screenshots-grid">
+            <img
+              src={cp1}
+              alt="Leiva'n Roll Hall of Fame - Screenshot 1"
+              className="screenshot-desktop"
+            />
+            <img
+              src={cp2}
+              alt="Leiva'n Roll Hall of Fame - Screenshot 2"
+              className="screenshot-desktop"
+            />
+            <img
+              src={cp3}
+              alt="Leiva'n Roll Hall of Fame - Screenshot 3"
+              className="screenshot-desktop"
+            />
+            <img
+              src={cp4}
+              alt="Leiva'n Roll Hall of Fame - Screenshot 4"
+              className="screenshot-desktop"
+            />
+            <img
+              src={cp5}
+              alt="Leiva'n Roll Hall of Fame - Screenshot 5"
+              className="screenshot-desktop"
+            />
+            <img
+              src={cp6}
+              alt="Leiva'n Roll Hall of Fame - Mobile Screenshot 1"
+              className="screenshot-mobile"
+            />
+            <img
+              src={cp7}
+              alt="Leiva'n Roll Hall of Fame - Mobile Screenshot 2"
+              className="screenshot-mobile"
+            />
+          </div>
+        ) : (
+          <div className="screenshots-placeholder">
+            <p>
+              {t(
+                "portfolio.screenshotsComingSoon",
+                "Capturas de pantalla próximamente..."
+              )}
+            </p>
+          </div>
+        )}
       </motion.section>
     </motion.div>
   );

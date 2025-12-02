@@ -223,7 +223,7 @@ const resources = {
         "Application to connect mothers, built with React and Node.js",
       "portfolio.project2.title": "Leiva'n Roll Hall of Fame",
       "portfolio.project2.description":
-        "Digital museum built with React and Vite showcasing over 500 music reviews by critic MAese Leiva from DirtyRock magazine",
+        "Digital museum built with React and Vite showcasing over 500 music reviews by critic Maese Leiva from DirtyRock magazine. Features advanced search, genre/year filters, and a music player.",
       "portfolio.project3.title": "Noahverso: Chronicles of a Childhood",
       "portfolio.project3.description":
         "Interactive narrative game developed in Unity with C# that turns childhood memories into playable adventures",
@@ -240,7 +240,7 @@ const resources = {
       "portfolio.project1.feature4": "Recommendation system",
 
       "portfolio.project2.longDescription":
-        "Interactive digital museum that compiles and presents over 500 music reviews by renowned critic Maese Leiva. Includes advanced search system, filters by genre and year, and integrated music player.",
+        "Interactive digital museum that compiles and presents over 500 music reviews by renowned critic Maese Leiva. Includes advanced search system, filters by genre and year, integrated music player, and a responsive design for seamless browsing.",
       "portfolio.project2.feature1": "Advanced review search",
       "portfolio.project2.feature2": "Genre and year filters",
       "portfolio.project2.feature3": "Responsive interface",
