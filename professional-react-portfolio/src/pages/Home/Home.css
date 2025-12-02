@@ -928,6 +928,13 @@
   .hero__content {
     margin: var(--space-1) auto 0 auto;
     max-width: 100%;
+    text-align: center;
+  }
+
+  .hero__title,
+  .hero__subtitle,
+  .hero__description {
+    text-align: center;
   }
 
   .hero__actions {
@@ -1005,11 +1012,26 @@
   .features__title {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--space-12);
+    text-align: center;
+  }
+
+  .feature-card,
+  .feature-card:first-child {
+    text-align: center;
+  }
+
+  .feature-card__title,
+  .feature-card__description {
+    text-align: center;
   }
 
   .skills__grid {
     gap: var(--space-3);
     padding: 0 var(--space-8);
+  }
+
+  .skills__title {
+    text-align: center;
   }
 
   .skill-tag {
@@ -1020,6 +1042,12 @@
   /* Más padding lateral para la sección CTA en móviles */
   .cta__content {
     padding: 0 var(--space-12);
+    text-align: center;
+  }
+
+  .cta__title,
+  .cta__description {
+    text-align: center;
   }
 
   /* Ocultar elementos decorativos en tablets para diseño más limpio */
