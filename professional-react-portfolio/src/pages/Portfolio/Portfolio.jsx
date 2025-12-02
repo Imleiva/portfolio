@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "../../components/Projects/ProjectCard";
 import momMatchLogo from "../../assets/images/projects/MomMatch.png";
-import leivaRollLogo from "../../assets/images/projects/logoLRHF.svg";
+import leivaRollLogo from "../../assets/images/projects/logoLRHF.png";
 import noahVersoLogo from "../../assets/images/projects/Noahverso.svg";
 import { useScrollToTop } from "../../hooks/useScrollToTop";
 import "./Portfolio.css";

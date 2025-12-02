@@ -7,7 +7,7 @@ import "./ProjectDetails.css";
 
 // Importamos las imágenes de los proyectos
 import momMatchLogo from "../../assets/images/projects/MomMatch.webp";
-import logoLRHF from "../../assets/images/projects/logoLRHF.svg";
+import logoLRHF from "../../assets/images/projects/logoLRHF.png";
 import noahVersoLogo from "../../assets/images/projects/Noahverso.svg";
 
 // Importamos las capturas de pantalla de Leiva'n Roll
