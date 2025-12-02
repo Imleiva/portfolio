@@ -320,6 +320,10 @@ img {
     font-size: 14px;
   }
 
+  body {
+    padding-top: var(--space-4);
+  }
+
   .container {
     padding: 0 var(--space-3);
   }
