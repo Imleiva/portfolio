@@ -1,5 +1,4 @@
 import React from "react";
-import "./ComingSoon.css";
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
