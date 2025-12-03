@@ -7,7 +7,7 @@
  * El diseño está pensado para ser acogedor pero profesional
  */
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import profileImg from "../../assets/fotoperfilSF.svg";
 import profilePixelartImg from "../../assets/fotoperfilpixelSF.webp";
 import fondoPixelado from "../../assets/fondopixel.png";
@@ -21,7 +21,12 @@ import "./Home.css";
 const Home = () => {
   const { t } = useTranslation();
   const videoRef = useRef(null);
+  const [isPixelated, setIsPixelated] = useState(false);
   useScrollToTop(); // Para que siempre empiece desde arriba
+
+  const handleProfileClick = () => {
+    setIsPixelated(!isPixelated);
+  };
 
   // Componentes de iconos personalizados para tecnologías específicas
   const HTMLIcon = () => (
@@ -165,7 +170,8 @@ const Home = () => {
 
         {/* Profile photo wrapper - fuera del hero__bg para que reciba eventos */}
         <div
-          className="hero__profile-bg-wrapper"
+          className={`hero__profile-bg-wrapper ${isPixelated ? 'is-pixelated' : ''}`}
+          onClick={handleProfileClick}
           style={{
             "--fondo-pixelado": `url(${fondoPixelado})`,
           }}

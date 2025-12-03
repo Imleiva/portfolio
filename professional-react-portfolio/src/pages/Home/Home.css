@@ -529,41 +529,62 @@
 }
 
 /* Efectos hover - intercambia fondos */
-.hero__profile-bg-wrapper:hover::before {
+.hero__profile-bg-wrapper:hover::before,
+.hero__profile-bg-wrapper.is-pixelated::before {
   opacity: 0;
 }
 
-.hero__profile-bg-wrapper:hover::after {
+.hero__profile-bg-wrapper:hover::after,
+.hero__profile-bg-wrapper.is-pixelated::after {
   opacity: 1;
 }
 
-:root:not(.dark-theme) .hero__profile-bg-wrapper:hover::before {
+:root:not(.dark-theme) .hero__profile-bg-wrapper:hover::before,
+:root:not(.dark-theme) .hero__profile-bg-wrapper.is-pixelated::before {
   opacity: 0;
 }
 
-:root:not(.dark-theme) .hero__profile-bg-wrapper:hover::after {
+:root:not(.dark-theme) .hero__profile-bg-wrapper:hover::after,
+:root:not(.dark-theme) .hero__profile-bg-wrapper.is-pixelated::after {
   opacity: 1;
 }
 
-.dark-theme .hero__profile-bg-wrapper:hover::before {
+.dark-theme .hero__profile-bg-wrapper:hover::before,
+.dark-theme .hero__profile-bg-wrapper.is-pixelated::before {
   opacity: 0;
 }
 
-.dark-theme .hero__profile-bg-wrapper:hover::after {
+.dark-theme .hero__profile-bg-wrapper:hover::after,
+.dark-theme .hero__profile-bg-wrapper.is-pixelated::after {
   opacity: 1;
 }
 
-.hero__profile-bg-wrapper:hover .hero__profile-img {
+.hero__profile-bg-wrapper:hover .hero__profile-img,
+.hero__profile-bg-wrapper.is-pixelated .hero__profile-img {
   transform: translate(-50%, -50%) scale(1);
 }
 
 /* TRANSICIÓN SIMPLE: DOS IMÁGENES SUPERPUESTAS CON FADE */
-.hero__profile-bg-wrapper:hover .hero__profile-img--normal {
+.hero__profile-bg-wrapper:hover .hero__profile-img--normal,
+.hero__profile-bg-wrapper.is-pixelated .hero__profile-img--normal {
   opacity: 0; /* La imagen normal se desvanece */
 }
 
-.hero__profile-bg-wrapper:hover .hero__profile-img--pixelart {
+.hero__profile-bg-wrapper:hover .hero__profile-img--pixelart,
+.hero__profile-bg-wrapper.is-pixelated .hero__profile-img--pixelart {
   opacity: 1; /* La imagen pixelada aparece por encima */
+}
+
+.hero__profile-bg-wrapper:hover .hero__profile-blur-bg,
+.hero__profile-bg-wrapper.is-pixelated .hero__profile-blur-bg {
+  opacity: 1;
+}
+
+/* Cursor pointer en móvil para indicar que es clickeable */
+@media (max-width: 768px) {
+  .hero__profile-bg-wrapper {
+    cursor: pointer;
+  }
 }
 
 .features::before {

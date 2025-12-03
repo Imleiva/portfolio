@@ -199,33 +199,61 @@ img {
   font-size: var(--font-size-base);
   font-weight: 500;
   line-height: 1;
-  border: 1px solid transparent;
+  border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
   white-space: nowrap;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn:focus,
+.btn:active,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .btn-primary {
   background: var(--gradient-primary);
+  background-size: 200% 200%;
   color: white;
-  border: 1px solid transparent;
+  border: none;
   box-shadow: none;
-  transition: all 0.3s ease;
+  transition: all 0.6s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(115, 100, 210, 0.95) 0%,
-    rgba(88, 41, 167, 0.95) 100%
-  );
+  background-position: right center;
   color: white;
-  border-color: transparent;
+  border: none;
   box-shadow: none;
   transform: none;
-  opacity: 0.95;
+  opacity: 1;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-secondary {

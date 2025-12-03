@@ -33,8 +33,8 @@
   --accent-dark: var(--color-8); /* Para dar peso visual */
 
   /* 🌈 Gradientes que me hacen feliz */
-  --gradient-start: var(--color-1); /* Empezamos suave */
-  --gradient-end: var(--color-10); /* Terminamos profundo */
+  --gradient-start: var(--color-4); /* Empezamos más oscuro */
+  --gradient-end: var(--color-9); /* Terminamos profundo */
   --gradient-primary: linear-gradient(
     135deg,
     var(--gradient-start),

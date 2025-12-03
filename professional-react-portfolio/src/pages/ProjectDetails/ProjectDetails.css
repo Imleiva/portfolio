@@ -94,7 +94,7 @@
   font-weight: 500;
   width: fit-content;
   margin-bottom: 0.5rem;
-  margin-left: 70%;
+  margin-left: auto;
 }
 
 .project-hero-title {
@@ -128,6 +128,16 @@
   border-radius: 8px;
   border: none !important;
   outline: none !important;
+}
+
+.project-details .btn-primary {
+  background: var(--color-7) !important;
+  color: white;
+}
+
+.project-details .btn-primary:hover {
+  background: var(--color-6) !important;
+  opacity: 0.95;
 }
 
 .project-details .btn:hover,
@@ -166,6 +176,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 .tech-badge-large {
