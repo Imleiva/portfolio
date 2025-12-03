@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollToTop } from "../../hooks/useScrollToTop";
 import "./ProjectDetails.css";
 
@@ -22,7 +23,40 @@ import mobile2 from "../../assets/images/screenshots/leivanrock/mobile2.png";
 const ProjectDetails = () => {
   const { slug } = useParams();
   const { t } = useTranslation();
+  const [currentScreenshot, setCurrentScreenshot] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const carouselRef = useRef(null);
   useScrollToTop(); // Lleva automáticamente al usuario al inicio de la página
+
+  const screenshots = [desktop1, desktop2, desktop3, desktop4, desktop5, mobile1, mobile2];
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Deslizar a la izquierda - siguiente imagen
+      setCurrentScreenshot((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
+    }
+    if (touchStart - touchEnd < -75) {
+      // Deslizar a la derecha - imagen anterior
+      setCurrentScreenshot((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
+    }
+  };
+
+  const goToPrevious = () => {
+    setCurrentScreenshot((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentScreenshot((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
+  };
 
   // Aquí están todos los datos de cada proyecto
   const projectsData = {
@@ -236,42 +270,56 @@ const ProjectDetails = () => {
       >
         <h2>{t("portfolio.screenshots", "Capturas de pantalla")}</h2>
         {slug === "leiva-roll" ? (
-          <div className="screenshots-grid">
-            <img
-              src={desktop1}
-              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 1"
-              className="screenshot-desktop"
-            />
-            <img
-              src={desktop2}
-              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 2"
-              className="screenshot-desktop"
-            />
-            <img
-              src={desktop3}
-              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 3"
-              className="screenshot-desktop"
-            />
-            <img
-              src={desktop4}
-              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 4"
-              className="screenshot-desktop"
-            />
-            <img
-              src={desktop5}
-              alt="Leiva'n Roll Hall of Fame - Desktop Screenshot 5"
-              className="screenshot-desktop"
-            />
-            <img
-              src={mobile1}
-              alt="Leiva'n Roll Hall of Fame - Mobile Screenshot 1"
-              className="screenshot-mobile"
-            />
-            <img
-              src={mobile2}
-              alt="Leiva'n Roll Hall of Fame - Mobile Screenshot 2"
-              className="screenshot-mobile"
-            />
+          <div className="carousel-container">
+            <div 
+              className="carousel"
+              ref={carouselRef}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div className="carousel-image-wrapper">
+                <img
+                  src={screenshots[currentScreenshot]}
+                  alt={`Leiva'n Roll Hall of Fame - Screenshot ${currentScreenshot + 1}`}
+                  className={`carousel-image ${currentScreenshot >= 5 ? 'mobile-screenshot' : ''}`}
+                  draggable="false"
+                />
+              </div>
+            </div>
+            
+            <div className="carousel-controls">
+              <button
+                className="carousel-button carousel-button-prev"
+                onClick={goToPrevious}
+                aria-label="Anterior"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              
+              <div className="carousel-indicators">
+                {screenshots.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`carousel-indicator ${currentScreenshot === index ? 'active' : ''}`}
+                    onClick={() => setCurrentScreenshot(index)}
+                    aria-label={`Ir a captura ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button
+                className="carousel-button carousel-button-next"
+                onClick={goToNext}
+                aria-label="Siguiente"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+            
+            <div className="carousel-counter">
+              {currentScreenshot + 1} / {screenshots.length}
+            </div>
           </div>
         ) : (
           <div className="screenshots-placeholder">

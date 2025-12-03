@@ -917,13 +917,14 @@
     min-height: 80vh;
     text-align: center;
     flex-direction: column;
-    padding: var(--space-6) var(--space-8);
+    padding: var(--space-5) var(--space-8);
     position: relative;
   }
 
   .hero__title {
     width: 120%;
     margin-left: -10%;
+    margin-top: -8%;
   }
 
   .hero__subtitle {
