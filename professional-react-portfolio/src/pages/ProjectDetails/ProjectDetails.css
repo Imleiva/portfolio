@@ -8,7 +8,7 @@
 
 /* Header */
 .project-header {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .back-button {
@@ -88,16 +88,17 @@
   display: inline-block;
   background: var(--gradient-primary);
   color: white;
-  padding: 0.4rem 1rem;
+  padding: 0.3rem 0.9rem;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
   width: fit-content;
   margin-bottom: 0.5rem;
+  margin-left: 70%;
 }
 
 .project-hero-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -111,6 +112,7 @@
   line-height: 1.6;
   color: var(--text-secondary);
   margin: 0;
+  padding: 0.1rem 0.1%;
 }
 
 .project-actions {
@@ -137,14 +139,14 @@
 
 /* Sections */
 .project-section {
-  margin-bottom: 3rem;
+  margin-bottom: 5rem !important;
 }
 
 .project-section h2 {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -254,8 +256,8 @@
   justify-content: center;
   background: var(--surface-color);
   border-radius: 12px;
-  padding: 2rem;
-  min-height: 500px;
+  padding: 0.75rem 2rem;
+  height: 550px;
   cursor: grab;
   -webkit-user-select: none;
   user-select: none;
@@ -263,6 +265,27 @@
 
 .carousel:active {
   cursor: grabbing;
+}
+
+.carousel-device-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  z-index: 10;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-device-indicator:hover {
+  opacity: 1;
 }
 
 .carousel-image-wrapper {
@@ -277,7 +300,7 @@
 
 .carousel-image {
   max-width: 100%;
-  max-height: 600px;
+  max-height: 500px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -288,7 +311,7 @@
 }
 
 .carousel-image.mobile-screenshot {
-  max-width: 280px;
+  max-width: 240px;
   max-height: 500px;
 }
 
@@ -297,7 +320,7 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
 }
 
 .carousel-button {
@@ -355,7 +378,7 @@
 
 .carousel-counter {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-size: 0.9rem;
   color: var(--text-muted);
   font-weight: 500;
@@ -383,7 +406,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .project-details {
-    padding: 1rem 1.5rem;
+    padding: 1rem 3rem !important;
     margin-top: 80px;
   }
 
@@ -408,7 +431,7 @@
 
   .project-details .btn {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
   }
 
   .features-grid {
@@ -433,6 +456,7 @@
 
   .technologies-grid {
     justify-content: center;
+    gap: 0.75rem;
   }
 
   .screenshots-placeholder {
@@ -441,17 +465,17 @@
 
   /* Carousel responsive */
   .carousel {
-    padding: 1.5rem 1rem;
-    min-height: 350px;
+    padding: 1rem 0.1rem;
+    height: 350px;
   }
 
   .carousel-image {
-    max-height: 400px;
+    max-height: 390px;
   }
 
   .carousel-image.mobile-screenshot {
     max-width: 200px;
-    max-height: 400px;
+    max-height: 340px;
   }
 
   .carousel-controls {
@@ -459,8 +483,8 @@
   }
 
   .carousel-button {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 
   .carousel-indicators {

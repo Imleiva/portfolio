@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Monitor, Smartphone } from "lucide-react";
 import { useScrollToTop } from "../../hooks/useScrollToTop";
 import "./ProjectDetails.css";
 
@@ -29,7 +29,15 @@ const ProjectDetails = () => {
   const carouselRef = useRef(null);
   useScrollToTop(); // Lleva automáticamente al usuario al inicio de la página
 
-  const screenshots = [desktop1, desktop2, desktop3, desktop4, desktop5, mobile1, mobile2];
+  const screenshots = [
+    desktop1,
+    desktop2,
+    desktop3,
+    desktop4,
+    desktop5,
+    mobile1,
+    mobile2,
+  ];
 
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
@@ -42,20 +50,28 @@ const ProjectDetails = () => {
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > 75) {
       // Deslizar a la izquierda - siguiente imagen
-      setCurrentScreenshot((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
+      setCurrentScreenshot((prev) =>
+        prev === screenshots.length - 1 ? 0 : prev + 1
+      );
     }
     if (touchStart - touchEnd < -75) {
       // Deslizar a la derecha - imagen anterior
-      setCurrentScreenshot((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
+      setCurrentScreenshot((prev) =>
+        prev === 0 ? screenshots.length - 1 : prev - 1
+      );
     }
   };
 
   const goToPrevious = () => {
-    setCurrentScreenshot((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
+    setCurrentScreenshot((prev) =>
+      prev === 0 ? screenshots.length - 1 : prev - 1
+    );
   };
 
   const goToNext = () => {
-    setCurrentScreenshot((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
+    setCurrentScreenshot((prev) =>
+      prev === screenshots.length - 1 ? 0 : prev + 1
+    );
   };
 
   // Aquí están todos los datos de cada proyecto
@@ -125,7 +141,7 @@ const ProjectDetails = () => {
       ],
       demoLink: "https://imleiva.github.io/musicmuseum/", // Enlace a la demo
       codeLink: "https://github.com/Imleiva/musicmuseum", // Enlace al repositorio
-      status: t("portfolio.status.completed", "Completado"),
+      status: t("portfolio.status.development", "En desarrollo"),
       hasDemoAvailable: true,
     },
     noahverso: {
@@ -271,23 +287,34 @@ const ProjectDetails = () => {
         <h2>{t("portfolio.screenshots", "Capturas de pantalla")}</h2>
         {slug === "leiva-roll" ? (
           <div className="carousel-container">
-            <div 
+            <div
               className="carousel"
               ref={carouselRef}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
+              <div className="carousel-device-indicator">
+                {currentScreenshot >= 5 ? (
+                  <Smartphone size={16} />
+                ) : (
+                  <Monitor size={16} />
+                )}
+              </div>
               <div className="carousel-image-wrapper">
                 <img
                   src={screenshots[currentScreenshot]}
-                  alt={`Leiva'n Roll Hall of Fame - Screenshot ${currentScreenshot + 1}`}
-                  className={`carousel-image ${currentScreenshot >= 5 ? 'mobile-screenshot' : ''}`}
+                  alt={`Leiva'n Roll Hall of Fame - Screenshot ${
+                    currentScreenshot + 1
+                  }`}
+                  className={`carousel-image ${
+                    currentScreenshot >= 5 ? "mobile-screenshot" : ""
+                  }`}
                   draggable="false"
                 />
               </div>
             </div>
-            
+
             <div className="carousel-controls">
               <button
                 className="carousel-button carousel-button-prev"
@@ -296,18 +323,20 @@ const ProjectDetails = () => {
               >
                 <ChevronLeft size={20} />
               </button>
-              
+
               <div className="carousel-indicators">
                 {screenshots.map((_, index) => (
                   <button
                     key={index}
-                    className={`carousel-indicator ${currentScreenshot === index ? 'active' : ''}`}
+                    className={`carousel-indicator ${
+                      currentScreenshot === index ? "active" : ""
+                    }`}
                     onClick={() => setCurrentScreenshot(index)}
                     aria-label={`Ir a captura ${index + 1}`}
                   />
                 ))}
               </div>
-              
+
               <button
                 className="carousel-button carousel-button-next"
                 onClick={goToNext}
@@ -316,7 +345,7 @@ const ProjectDetails = () => {
                 <ChevronRight size={20} />
               </button>
             </div>
-            
+
             <div className="carousel-counter">
               {currentScreenshot + 1} / {screenshots.length}
             </div>
