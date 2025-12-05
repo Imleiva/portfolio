@@ -1,0 +1,411 @@
+/* Noah Platformer - Easter Egg de plataformas */
+
+.noah-platformer {
+  position: fixed;
+  width: 68px;
+  height: 68px;
+  z-index: 1000;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast; /* Edge support */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges; /* webkit-optimize-contrast already included for Edge */
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* Animación de frames para caminar (4 frames) */
+@keyframes noahWalkFrames {
+  to {
+    background-position: -256px 0;
+  }
+}
+
+/* Animación de frames para saltar (5 frames) */
+@keyframes noahJumpFrames {
+  to {
+    background-position: -320px 0;
+  }
+}
+
+/* Animación de frames para ataque (16 frames) */
+@keyframes noahAttackFrames {
+  to {
+    background-position: -1024px 0;
+  }
+}
+
+/* Animación de frames para descansar (4 frames) */
+@keyframes noahRestFrames {
+  to {
+    background-position: -256px 0;
+  }
+}
+
+/* Animación de frames para correr (4 frames) */
+@keyframes noahRunFrames {
+  to {
+    background-position: -256px 0;
+  }
+}
+
+/* Fase 0: Aparecer caminando desde fuera */
+.noah-sprite-appearing {
+  bottom: 610px;
+  background-size: 256px 64px; /* 4 frames de walking */
+  animation: noahAppearPosition 1.5s ease-in-out forwards,
+    noahWalkFrames 0.6s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes noahAppearPosition {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 70px;
+  }
+}
+
+/* Fase 1: Saltar hacia abajo */
+.noah-sprite-falling {
+  background-size: 320px 64px; /* 5 frames de jump */
+  animation: noahFallPosition 1s ease-in-out both, noahJumpFrames 1s steps(5) 1;
+  animation-fill-mode: both;
+}
+
+@keyframes noahFallPosition {
+  0% {
+    left: 70px;
+    bottom: 610px;
+  }
+  15% {
+    left: 85px;
+    bottom: 625px; /* Sube un poco */
+  }
+  30% {
+    left: 105px;
+    bottom: 615px; /* Empieza a caer */
+  }
+  45% {
+    left: 125px;
+    bottom: 520px;
+  }
+  60% {
+    left: 145px;
+    bottom: 380px;
+  }
+  75% {
+    left: 165px;
+    bottom: 220px;
+  }
+  90% {
+    left: 180px;
+    bottom: 120px;
+  }
+  100% {
+    left: 190px;
+    bottom: 96px;
+  }
+}
+
+/* Fase 2: Caminar en MomMatch (botón izquierdo) */
+.noah-sprite-walking1 {
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahWalk1Position 1.7s linear forwards,
+    noahWalkFrames 0.6s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes noahWalk1Position {
+  from {
+    left: 190px;
+  }
+  to {
+    left: 280px;
+  }
+}
+
+/* Fase 3: Correr antes del primer salto */
+.noah-sprite-running1 {
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahRun1Position 1.8s linear forwards,
+    noahRunFrames 0.4s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes noahRun1Position {
+  from {
+    left: 280px;
+  }
+  to {
+    left: 430px;
+  }
+}
+
+/* Fase 4: Saltar al Museo (botón central) */
+.noah-sprite-jump1 {
+  background-size: 320px 64px; /* 5 frames de jumping */
+  animation: noahJump1Position 0.65s ease-out forwards,
+    noahJumpFrames 0.65s steps(5) 1;
+  animation-fill-mode: both;
+}
+
+@keyframes noahJump1Position {
+  0% {
+    left: 430px;
+    bottom: 96px;
+  }
+  50% {
+    left: 525px;
+    bottom: 145px;
+  }
+  100% {
+    left: 620px;
+    bottom: 96px;
+  }
+}
+
+/* Fase 5: Caminar en Museo */
+.noah-sprite-walking2 {
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahWalk2Position 1.5s linear forwards,
+    noahWalkFrames 0.6s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes noahWalk2Position {
+  from {
+    left: 620px;
+  }
+  to {
+    left: 720px;
+  }
+}
+
+/* Fase 6: Correr antes del segundo salto */
+.noah-sprite-running2 {
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahRun2Position 1s linear forwards,
+    noahRunFrames 0.4s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes noahRun2Position {
+  from {
+    left: 720px;
+  }
+  to {
+    left: 820px;
+  }
+}
+
+/* Fase 7: Jump Attack a Noahverso (botón derecho) */
+.noah-sprite-jumpattack {
+  background-size: 1024px 64px; /* 16 frames de 64px */
+  animation: noahJumpAttackPosition 1.2s ease-out forwards,
+    noahAttackFrames 1.2s steps(16) 1;
+  animation-fill-mode: both;
+}
+
+@keyframes noahJumpAttackPosition {
+  0% {
+    left: 820px;
+    bottom: 96px;
+  }
+  50% {
+    left: 940px;
+    bottom: 155px;
+  }
+  100% {
+    left: 1060px;
+    bottom: 96px;
+  }
+}
+
+/* Fase 8: Caminar en Noahverso */
+.noah-sprite-walking3 {
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahWalk3Position 1s linear forwards,
+    noahWalkFrames 0.6s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes noahWalk3Position {
+  from {
+    left: 1060px;
+  }
+  to {
+    left: 1130px;
+  }
+}
+
+/* Fase 9: Correr hasta el final del botón */
+.noah-sprite-running3 {
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahRun3Position 1s linear forwards,
+    noahRunFrames 0.4s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes noahRun3Position {
+  from {
+    left: 1130px;
+  }
+  to {
+    left: 1240px;
+  }
+}
+
+/* Fase 10: Descansar al final */
+.noah-sprite-rest {
+  left: 1240px;
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahRestFrames 1s steps(4) infinite;
+  animation-fill-mode: both;
+}
+
+/* Fase 11: Descansar mirando hacia el otro lado */
+.noah-sprite-rest2 {
+  left: 1240px;
+  bottom: 96px;
+  background-size: 256px 64px; /* 4 frames de 64px */
+  animation: noahRestFrames 1s steps(4) infinite;
+  animation-fill-mode: both;
+  transform: scaleX(-1); /* Voltear horizontalmente */
+}
+
+/* Fase 12: Desaparecer con interferencias */
+.noah-sprite-disappear {
+  left: 1240px;
+  bottom: 96px;
+  background-size: 256px 64px;
+  transform: scaleX(-1);
+  animation: noahDisappearGlitch 1.5s ease-out forwards,
+    noahRestFrames 1s steps(4) infinite;
+}
+
+@keyframes noahDisappearGlitch {
+  0% {
+    opacity: 1;
+    filter: none;
+  }
+  20% {
+    opacity: 0.8;
+    filter: brightness(1.5) contrast(1.2);
+    transform: scaleX(-1) translateX(3px);
+  }
+  40% {
+    opacity: 0.6;
+    filter: brightness(0.8) contrast(1.5);
+    transform: scaleX(-1) translateX(-2px);
+  }
+  60% {
+    opacity: 0.4;
+    filter: brightness(1.3) contrast(0.8) hue-rotate(20deg);
+    transform: scaleX(-1) translateX(2px);
+  }
+  75% {
+    opacity: 0.2;
+    filter: brightness(0.5) contrast(2);
+    transform: scaleX(-1) translateX(-3px);
+  }
+  85% {
+    opacity: 0.1;
+    filter: brightness(1.5) blur(1px);
+    transform: scaleX(-1) translateY(-2px);
+  }
+  100% {
+    opacity: 0;
+    filter: brightness(2) blur(3px);
+    transform: scaleX(-1) translateY(-5px);
+  }
+}
+
+/* Responsive - Ocultar en pantallas pequeñas */
+@media (max-width: 1400px) {
+  .noah-platformer {
+    display: none;
+  }
+}
+
+/* Enemigo objetivo para el ataque */
+.noah-enemy {
+  position: fixed;
+  width: 68px;
+  height: 68px;
+  left: 1060px;
+  bottom: 100px;
+  z-index: 999;
+  pointer-events: none;
+  object-fit: contain;
+  image-rendering: -moz-crisp-edges; /* webkit-optimize-contrast already included for Edge */
+  image-rendering: -webkit-optimize-contrast; /* Edge support */
+  image-rendering: pixelated;
+  animation: enemyFloat 2s ease-in-out infinite, enemyAppear 0.5s ease-out;
+}
+
+.noah-enemy-hit {
+  animation: enemyHit 0.8s ease-out forwards !important;
+}
+
+@keyframes enemyFloat {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+}
+
+@keyframes enemyAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  60% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes enemyHit {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+  20% {
+    transform: scale(1.3) rotate(20deg);
+    filter: brightness(2) hue-rotate(90deg);
+  }
+  40% {
+    transform: scale(0.8) rotate(-15deg);
+    filter: brightness(0.5);
+  }
+  60% {
+    transform: scale(1.1) rotate(10deg);
+    opacity: 0.6;
+  }
+  80% {
+    transform: scale(0.5) rotate(-30deg);
+    opacity: 0.2;
+    filter: blur(2px) brightness(3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+    filter: blur(5px) brightness(5);
+  }
+}
