@@ -15,6 +15,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
+import Blog from "./pages/Blog/Blog";
 import ComingSoon from "./pages/ComingSoon/ComingSoon";
 import NotFound from "./pages/NotFound/NotFound";
 import "./styles/global.css";
@@ -32,7 +33,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:slug" element={<ProjectDetails />} />
-              <Route path="/blog" element={<ComingSoon projectName="Blog" />} />
+              <Route path="/blog" element={<Blog />} />
               <Route
                 path="/coming-soon/:projectName?"
                 element={<ComingSoon />}

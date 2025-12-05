@@ -170,7 +170,9 @@ const Home = () => {
 
         {/* Profile photo wrapper - fuera del hero__bg para que reciba eventos */}
         <div
-          className={`hero__profile-bg-wrapper ${isPixelated ? 'is-pixelated' : ''}`}
+          className={`hero__profile-bg-wrapper ${
+            isPixelated ? "is-pixelated" : ""
+          }`}
           onClick={handleProfileClick}
           style={{
             "--fondo-pixelado": `url(${fondoPixelado})`,
