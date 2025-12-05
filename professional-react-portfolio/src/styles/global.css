@@ -245,7 +245,7 @@ img {
 
 .btn-primary:hover {
   background-position: right center;
-  color: white;
+  color: rgb(79, 74, 141);
   border: none;
   box-shadow: none;
   transform: none;

@@ -10,6 +10,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "../../components/Projects/ProjectCard";
+import NoahPlatformer from "../../components/NoahPlatformer/NoahPlatformer";
 import momMatchLogo from "../../assets/images/projects/MomMatch.png";
 import leivaRollLogo from "../../assets/images/projects/logoLRHF.png";
 import noahVersoLogo from "../../assets/images/projects/Noahverso.svg";
@@ -52,6 +53,7 @@ const Portfolio = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <NoahPlatformer />
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
