@@ -20,6 +20,30 @@ const NoahPlatformer = () => {
   const [showEnemy, setShowEnemy] = useState(false);
   const [enemyHit, setEnemyHit] = useState(false);
 
+  // Bloquear scroll durante la animación sin que salte el layout
+  useEffect(() => {
+    if (isPlaying) {
+      const scrollY = window.scrollY;
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+      return () => {
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.body.style.paddingRight = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isPlaying]);
+
   // Detectar cuando el usuario hace hover sobre el grid de proyectos
   useEffect(() => {
     const portfolioGrid = document.querySelector(".portfolio-grid");
@@ -88,39 +112,41 @@ const NoahPlatformer = () => {
     }, 8150);
 
     setTimeout(() => {
-      console.log("Fase: jumpattack - Saltar con ataque a Noahverso");
+      console.log(
+        "Fase: jumpattack - Saltar con ataque a Noahverso (Matrix slow-mo)"
+      );
       setCurrentPhase("jumpattack");
-      // Golpear al enemigo cuando Noah ataca
+      // Golpear al enemigo cuando Noah ataca (65% del salto para coincidir con la bola)
       setTimeout(() => {
         console.log("Enemigo golpeado!");
         setEnemyHit(true);
-      }, 600);
+      }, 1300);
     }, 9150);
 
     setTimeout(() => {
       console.log("Fase: walking3 - Caminar en Noahverso");
       setCurrentPhase("walking3");
-    }, 10350);
+    }, 11150);
 
     setTimeout(() => {
       console.log("Fase: running3 - Correr hasta el final");
       setCurrentPhase("running3");
-    }, 11350);
+    }, 12150);
 
     setTimeout(() => {
       console.log("Fase: rest - Descansar");
       setCurrentPhase("rest");
-    }, 12350);
+    }, 13150);
 
     setTimeout(() => {
       console.log("Fase: rest2 - Descansar mirando al otro lado");
       setCurrentPhase("rest2");
-    }, 12450);
+    }, 13250);
 
     setTimeout(() => {
       console.log("Fase: disappear - Desaparecer con interferencias");
       setCurrentPhase("disappear");
-    }, 16850);
+    }, 17650);
 
     setTimeout(() => {
       console.log("Finalizando");
@@ -128,7 +154,7 @@ const NoahPlatformer = () => {
       setIsPlaying(false);
       setShowEnemy(false);
       setEnemyHit(false);
-    }, 18350);
+    }, 19150);
   };
 
   const getSpriteSheet = () => {

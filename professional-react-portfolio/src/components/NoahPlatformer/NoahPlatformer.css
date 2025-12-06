@@ -204,11 +204,11 @@
   }
 }
 
-/* Fase 7: Jump Attack a Noahverso (botón derecho) */
+/* Fase 7: Jump Attack a Noahverso (botón derecho) - Efecto Matrix slow-motion */
 .noah-sprite-jumpattack {
   background-size: 1024px 64px; /* 16 frames de 64px */
-  animation: noahJumpAttackPosition 1.2s ease-out forwards,
-    noahAttackFrames 1.2s steps(16) 1;
+  animation: noahJumpAttackPosition 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
+    noahAttackFrames 2s steps(16) 1;
   animation-fill-mode: both;
 }
 
@@ -341,8 +341,8 @@
   position: fixed;
   width: 68px;
   height: 68px;
-  left: 1060px;
-  bottom: 100px;
+  left: 1090px;
+  bottom: 97px;
   z-index: 999;
   pointer-events: none;
   object-fit: contain;
@@ -353,7 +353,7 @@
 }
 
 .noah-enemy-hit {
-  animation: enemyHit 0.8s ease-out forwards !important;
+  animation: enemyHit 1s ease-out forwards !important;
 }
 
 @keyframes enemyFloat {
