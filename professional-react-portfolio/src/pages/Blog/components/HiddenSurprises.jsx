@@ -12,10 +12,10 @@ const HiddenSurprises = () => {
           <div className="blog-entry-date">5 Dic 2024</div>
           <h3 className="blog-entry-title">Noah: El Easter Egg Platformer</h3>
           <p className="blog-entry-text">
-            Me encanta esconder pequeñas sorpresas en los sitios que creo...
-            Es como dejar migas de pan para quien tenga curiosidad de explorar.
-            Por eso añadí un easter egg donde Noah (mi personaje pixel art)
-            cobra vida y salta entre los proyectos como si fueran plataformas.
+            Me encanta esconder pequeñas sorpresas en los sitios que creo... Es
+            como dejar migas de pan para quien tenga curiosidad de explorar. Por
+            eso añadí un easter egg donde Noah (mi personaje pixel art) cobra
+            vida y salta entre los proyectos como si fueran plataformas.
           </p>
           <p className="blog-entry-text">
             La animación tiene 12 fases: Noah aparece caminando desde el header,
@@ -32,7 +32,7 @@ const HiddenSurprises = () => {
           </p>
           <p className="blog-entry-text">
             <strong>Pista:</strong> Visita la sección de Portfolio y pasa el
-            cursor sobre la galería de proyectos... 👀
+            cursor sobre la galería de proyectos...
           </p>
           <div className="blog-entry-tags">
             <span className="blog-entry-tag">Easter Egg</span>
@@ -48,7 +48,8 @@ const HiddenSurprises = () => {
           <p className="blog-entry-text">
             Los easter eggs no son solo "extras divertidos". Son una forma de
             conectar con quien visita tu trabajo. Cuando alguien descubre algo
-            inesperado, se crea un momento memorable... y eso es lo que me gusta.
+            inesperado, se crea un momento memorable... y eso es lo que me
+            gusta.
           </p>
           <p className="blog-entry-text">
             En este portfolio hay varios elementos sorpresa esperando. Algunos

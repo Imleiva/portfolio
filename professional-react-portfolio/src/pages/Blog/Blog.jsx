@@ -6,7 +6,6 @@ import MicroDebug from "./components/MicroDebug";
 import CodeAsArt from "./components/CodeAsArt";
 import BookReviews from "./components/BookReviews";
 import PsychologicalPatterns from "./components/PsychologicalPatterns";
-import NightStories from "./components/NightStories";
 import BeforeAfter from "./components/BeforeAfter";
 import PastMeHatesThis from "./components/PastMeHatesThis";
 import Inspirations from "./components/Inspirations";
@@ -25,7 +24,6 @@ const Blog = () => {
     { id: "art", label: "Código como Arte" },
     { id: "books", label: "Libros" },
     { id: "psychology", label: "Psicología" },
-    { id: "night", label: "Historias Nocturnas" },
     { id: "projects", label: "Antes/Después" },
     { id: "past", label: "Mi Yo del Pasado" },
     { id: "inspiration", label: "Inspiración" },
@@ -118,12 +116,6 @@ const Blog = () => {
             selectedCategory === "psychology") && (
             <motion.div variants={itemVariants}>
               <PsychologicalPatterns />
-            </motion.div>
-          )}
-
-          {(selectedCategory === "all" || selectedCategory === "night") && (
-            <motion.div variants={itemVariants}>
-              <NightStories />
             </motion.div>
           )}
 
