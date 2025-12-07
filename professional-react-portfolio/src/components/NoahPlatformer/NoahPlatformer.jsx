@@ -47,26 +47,43 @@ const NoahPlatformer = () => {
   // Detectar cuando el usuario hace hover sobre el grid de proyectos
   useEffect(() => {
     const portfolioGrid = document.querySelector(".portfolio-grid");
+    let hoverTimeout = null;
 
     const handleMouseEnter = () => {
       if (!isPlaying) {
-        console.log("Hover detectado! Iniciando animación");
-        startSequence();
+        console.log("Hover detectado! Esperando 1 segundo...");
+        hoverTimeout = setTimeout(() => {
+          console.log("Iniciando animación");
+          startSequence();
+        }, 800);
       } else {
         console.log("Animación ya en curso, ignorando hover");
       }
     };
 
+    const handleMouseLeave = () => {
+      if (hoverTimeout) {
+        console.log("Hover cancelado antes de iniciar animación");
+        clearTimeout(hoverTimeout);
+        hoverTimeout = null;
+      }
+    };
+
     if (portfolioGrid) {
       portfolioGrid.addEventListener("mouseenter", handleMouseEnter);
+      portfolioGrid.addEventListener("mouseleave", handleMouseLeave);
       console.log("Event listener agregado a:", portfolioGrid);
     } else {
       console.log("No se encontró .portfolio-grid");
     }
 
     return () => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
       if (portfolioGrid) {
         portfolioGrid.removeEventListener("mouseenter", handleMouseEnter);
+        portfolioGrid.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
   }, [isPlaying]);

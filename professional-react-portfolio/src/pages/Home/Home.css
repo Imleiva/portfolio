@@ -153,6 +153,7 @@
     0 3px 8px rgba(115, 100, 210, 0.15);
   transform: translateY(-1px);
   opacity: 1;
+  color: white !important;
 }
 
 :root:not(.dark-theme) .hero__actions .btn-secondary {
@@ -195,6 +196,7 @@
   box-shadow: none;
   transform: none;
   opacity: 0.95;
+  color: white !important;
 }
 
 .dark-theme .hero__actions .btn-secondary {
