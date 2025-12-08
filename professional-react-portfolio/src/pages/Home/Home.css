@@ -157,7 +157,7 @@
 }
 
 :root:not(.dark-theme) .hero__actions .btn-secondary {
-  background: rgba(255, 255, 255, 0.929);
+  background: rgba(203, 203, 228, 0.413);
   border: 1px solid rgba(115, 100, 210, 0.2);
   color: #4a5568;
   font-weight: 500;
@@ -168,7 +168,7 @@
 }
 
 :root:not(.dark-theme) .hero__actions .btn-secondary:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(212, 212, 236, 0.721);
   border-color: rgba(115, 100, 210, 0.3);
   color: #2d3748;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06), 0 3px 8px rgba(0, 0, 0, 0.04);
@@ -905,28 +905,34 @@
 }
 
 .cta .btn-primary {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
   font-weight: 600;
   font-size: var(--font-size-base);
   padding: var(--space-4) var(--space-8);
   border-radius: var(--radius-lg);
-  box-shadow: none;
-  transition: all 0.3s ease;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  text-shadow: none;
+  text-shadow: none !important;
+  transform: none !important;
+}
+
+.cta .btn-primary::before {
+  display: none !important;
 }
 
 .cta .btn-primary:hover {
-  border-color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.15);
-  transform: none;
-  box-shadow: none;
-  text-shadow: none;
-  color: white;
-  opacity: 0.95;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  color: white !important;
+  opacity: 0.95 !important;
+  background-position: initial !important;
 }
 
 .cta .btn-primary:active {

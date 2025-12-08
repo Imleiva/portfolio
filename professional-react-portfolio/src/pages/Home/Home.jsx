@@ -257,7 +257,6 @@ const Home = () => {
               <motion.a
                 href="mailto:aleivagar@gmail.com?subject=Contacto desde tu portfolio&body=Hola Ana,%0D%0A%0D%0AMe interesa contactarte..."
                 className="btn btn-primary"
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
               >
