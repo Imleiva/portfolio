@@ -700,50 +700,36 @@
       top: calc(var(--noahverso-top, 650px) - 8px);
       left: var(--noahverso-left, 200px);
       transform: translateX(-50%);
-      opacity: 1;
-      filter: none;
     }
     15% {
       top: calc(var(--noahverso-top, 650px) - 38px - 14px);
       left: var(--noahverso-left, 200px);
       transform: translateX(-50%);
-      opacity: 1;
-      filter: hue-rotate(30deg) brightness(1.2);
     }
     30% {
       top: calc(var(--noahverso-top, 650px) - 38px);
       left: var(--noahverso-left, 200px);
       transform: translateX(-50%);
-      opacity: 0.8;
-      filter: contrast(1.5) brightness(0.8);
     }
     45% {
       top: calc(var(--noahverso-top, 650px) - 38px - 12px);
       left: var(--noahverso-left, 200px);
       transform: translateX(-50%) scaleX(1.05);
-      opacity: 0.6;
-      filter: blur(1px) hue-rotate(-20deg);
     }
     60% {
       top: calc(var(--noahverso-top, 650px) - 38px);
       left: var(--noahverso-left, 200px);
       transform: translateX(-50%) scaleX(0.98);
-      opacity: 0.4;
-      filter: brightness(1.5) blur(2px);
     }
     80% {
       top: calc(var(--noahverso-top, 650px) - 38px);
       left: var(--noahverso-left, 200px);
       transform: translateX(-50%) scale(1.05) translateY(-2px);
-      opacity: 0.2;
-      filter: blur(3px) contrast(2);
     }
     100% {
       top: calc(var(--noahverso-top, 650px) - 38px);
       left: var(--noahverso-left, 200px);
       transform: translateX(-50%) scale(0.8) translateY(-5px);
-      opacity: 0;
-      filter: blur(5px) brightness(2);
     }
   }
 
