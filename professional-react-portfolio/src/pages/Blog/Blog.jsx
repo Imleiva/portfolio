@@ -10,6 +10,7 @@ import BeforeAfter from "./components/BeforeAfter";
 import PastMeHatesThis from "./components/PastMeHatesThis";
 import Inspirations from "./components/Inspirations";
 import HiddenSurprises from "./components/HiddenSurprises";
+import IdeasInProgress from "./components/IdeasInProgress";
 import "./Blog.css";
 
 const Blog = () => {
@@ -19,15 +20,16 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { id: "all", label: "Todo" },
-    { id: "debug", label: "Debug Personal" },
-    { id: "art", label: "Código como Arte" },
-    { id: "books", label: "Libros" },
-    { id: "psychology", label: "Psicología" },
-    { id: "projects", label: "Antes/Después" },
-    { id: "past", label: "Mi Yo del Pasado" },
-    { id: "inspiration", label: "Inspiración" },
-    { id: "easter-eggs", label: "Easter Eggs" },
+    { id: "all", label: t("categories.all") },
+    { id: "debug", label: t("categories.debug") },
+    { id: "art", label: t("categories.art") },
+    { id: "books", label: t("categories.books") },
+    { id: "psychology", label: t("categories.psychology") },
+    { id: "projects", label: t("categories.projects") },
+    { id: "past", label: t("categories.past") },
+    { id: "inspiration", label: t("categories.inspiration") },
+    { id: "ideas", label: t("categories.ideas") },
+    { id: "easter-eggs", label: t("categories.easterEggs") },
   ];
 
   const containerVariants = {
@@ -60,11 +62,9 @@ const Blog = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="blog-title">
-            <span className="gradient-text">Blog</span>
+            <span className="gradient-text">{t("title")}</span>
           </h1>
-          <p className="blog-subtitle">
-            Reflexiones, código, arte y todo lo que pasa entre commits
-          </p>
+          <p className="blog-subtitle">{t("subtitle")}</p>
         </motion.div>
 
         {/* Category Filter */}
@@ -135,6 +135,12 @@ const Blog = () => {
             selectedCategory === "inspiration") && (
             <motion.div variants={itemVariants}>
               <Inspirations />
+            </motion.div>
+          )}
+
+          {(selectedCategory === "all" || selectedCategory === "ideas") && (
+            <motion.div variants={itemVariants}>
+              <IdeasInProgress />
             </motion.div>
           )}
 

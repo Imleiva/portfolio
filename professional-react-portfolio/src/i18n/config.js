@@ -7,6 +7,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import blogEs from "./blog/es.json";
+import blogEn from "./blog/en.json";
 
 // Todas mis traducciones organizadas por idioma
 const resources = {
@@ -144,6 +146,9 @@ const resources = {
 
       // Common
       name: "Ana Leiva",
+
+      // Blog - importado desde JSON
+      ...blogEs.blog,
     },
   },
   en: {
@@ -279,6 +284,9 @@ const resources = {
 
       // Common
       name: "Ana Leiva",
+
+      // Blog - importado desde JSON
+      ...blogEn.blog,
     },
   },
 };

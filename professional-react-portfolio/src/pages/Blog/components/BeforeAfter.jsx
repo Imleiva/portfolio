@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const BeforeAfter = () => {
-  const projects = [
+  const { t } = useTranslation();
+  const projects = t("beforeAfter.entries", { returnObjects: true });
+  /*const projects = [
     {
       date: "5 Dic 2024",
       title: "Museo Virtual Leiva'n Roll: Cuando una idea simple se transforma",
@@ -21,13 +24,13 @@ const BeforeAfter = () => {
         "Ideas descartadas: En un momento pensé en hacer el museo completamente en 3D con WebGL... pero era demasiado complejo y perdía el foco. También barajé añadir un sistema de votación para los artistas, pero habría desviado la atención de lo importante: descubrir y disfrutar la música.",
       tags: ["Museo Virtual", "Evolución", "Proceso Creativo", "Leiva'n Roll"],
     },
-  ];
+  ];*/
 
   return (
     <div className="blog-section">
       <div className="blog-section-header">
         <span className="blog-section-icon">🔍</span>
-        <h2 className="blog-section-title">Antes / Después</h2>
+        <h2 className="blog-section-title">{t("beforeAfter.title")}</h2>
       </div>
       <div className="blog-section-content">
         {projects.map((project, index) => (

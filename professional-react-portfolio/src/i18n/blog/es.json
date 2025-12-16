@@ -1,0 +1,263 @@
+{
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Reflexiones, código, arte y todo lo que pasa entre commits",
+
+    "categories": {
+      "all": "Todo",
+      "debug": "Debug Personal",
+      "art": "Código como Arte",
+      "books": "Libros",
+      "psychology": "Psicología",
+      "projects": "Antes/Después",
+      "past": "Mi Yo del Pasado",
+      "inspiration": "Inspiración",
+      "ideas": "Ideas en Proceso",
+      "easterEggs": "Easter Eggs"
+    },
+
+    "microDebug": {
+      "title": "Debug Personal",
+      "entries": [
+        {
+          "date": "4 Dic 2024",
+          "title": "El misterio del z-index perdido",
+          "text": "Bug del día: me pasé 2h buscando un div que estaba oculto tras un z-index. Resulta que el problema no era el z-index... era que el elemento tenía `display: none`. A veces las respuestas más obvias son las más difíciles de ver.",
+          "tags": ["CSS", "Debug", "Lección aprendida"]
+        },
+        {
+          "date": "3 Dic 2024",
+          "title": "Patch note emocional",
+          "text": "Patch note emocional: hoy subo +2 en paciencia después de descubrir que el bug era un espacio extra en una clase CSS. Un. Espacio. Extra. Respirar profundo ayuda.",
+          "tags": ["Paciencia", "CSS", "Vida dev"]
+        },
+        {
+          "date": "2 Dic 2024",
+          "title": "El console.log que olvidé borrar",
+          "text": "Subí a producción con 37 console.log() activos. El sitio funcionaba perfecto pero mi console parecía un chat de WhatsApp a las 3am. Recordatorio: revisar antes de hacer push.",
+          "tags": ["JavaScript", "Oops", "Producción"]
+        }
+      ]
+    },
+
+    "codeAsArt": {
+      "title": "Código como Arte",
+      "entries": [
+        {
+          "date": "10 Dic 2024",
+          "title": "IOGraph: Convirtiendo código en arte visual",
+          "content": [
+            "Acabo de descubrir IOGraph y me tiene fascinada. Es una aplicación que convierte tus movimientos del mouse en arte contemporáneo mientras trabajas. La idea es simple: dejas el programa corriendo en segundo plano mientras programas, y después de un rato vuelves y tienes una imagen preciosa de todo lo que has estado haciendo.",
+            "Lo que me encanta es que cada sesión de código genera una composición única. Los círculos más grandes aparecen cuando te detienes a pensar, cuando estás leyendo código o depurando. Las líneas muestran cómo saltas entre archivos, entre el navegador y el editor. Es literalmente un mapa visual de tu proceso de pensamiento.",
+            "A partir de ahora voy a usarlo cada vez que programe. Es divertido, completamente inútil y totalmente gratis. Pero sobre todo, es una forma de recordar que incluso el trabajo más rutinario puede convertirse en algo hermoso si lo miras desde otro ángulo."
+          ],
+          "tags": ["Herramientas", "Arte", "Proceso creativo"],
+          "link": {
+            "url": "https://iographica.com/",
+            "text": "Visitar IOGraph"
+          }
+        },
+        {
+          "date": "4 Dic 2024",
+          "title": "La recursión como danza",
+          "code": "function fibonacci(n) {\n  if (n <= 1) return n;\n  return fibonacci(n - 1) + fibonacci(n - 2);\n}",
+          "palette": [
+            "#7364d2",
+            "#5829a7",
+            "#97dffc",
+            "#8eb5f0",
+            "#858ae3",
+            "#4e148c"
+          ],
+          "poem": "Llamarse a sí mismo,\nuna y otra vez,\nhasta encontrar el principio.\nComo el eco en la montaña,\ncomo el reflejo en el espejo...\nel código baila consigo mismo.",
+          "description": "Este algoritmo de Fibonacci es como una danza recursiva. Se llama a sí mismo en un patrón hipnótico, creando una cascada de números que sigue la secuencia más famosa de la naturaleza... Los colores representan la profundidad de cada llamada. Belleza matemática pura.",
+          "tags": ["Algoritmos", "Poesía", "Recursión"]
+        }
+      ]
+    },
+
+    "bookReviews": {
+      "title": "Lecturas",
+      "entries": [
+        {
+          "date": "5 Dic 2024",
+          "title": "Cartas de Alejandra Pizarnik",
+          "review": "Ayer terminé de leer las cartas de Pizarnik... su creatividad era exquisita, belleza en su rareza. Cambiaba entre filosofía, letras y periodismo porque no encajaba en ningún molde. Escribía con una precisión obsesiva pero también con una libertad que rompía todo lo establecido. Leía a Artaud, Rimbaud, Baudelaire... se construyó a sí misma desde la literatura, cambiando hasta su propio nombre. Era rebelde, estrafalaria, subversiva frente a lo que se esperaba de ella. Sus cartas son ese diálogo constante consigo misma, con todas las que era... como si estuviera programando su propia identidad, iterando hasta encontrar una versión que pudiera habitar. Esa búsqueda infinita de lo perdido, esa tensión entre la precisión racional y el automatismo surrealista... es lo que siento cuando creo: buscando algo que no sé si existe pero que necesito encontrar.",
+          "tags": ["Poesía", "Identidad", "Creatividad"]
+        },
+        {
+          "date": "15 Nov 2024",
+          "title": "Cuentos de Edgar Allan Poe",
+          "review": "Poe construía atmósferas perfectas con palabras precisas. Cada frase te lleva un paso más adentro. Leo sus cuentos y pienso en arquitectura de código: cómo cada función lleva a la siguiente, cómo construyes suspense (o en nuestro caso, flujo) hasta que todo converge en un punto. 'El corazón delator' es como un bug que no puedes ignorar... está ahí, latiendo, recordándote que algo no está bien hasta que lo arreglas.",
+          "tags": ["Literatura", "Estructura", "Narrativa"]
+        }
+      ]
+    },
+
+    "psychologicalPatterns": {
+      "title": "Patrones Psicológicos en el Código",
+      "entries": [
+        {
+          "date": "4 Dic 2024",
+          "title": "La ansiedad diseña interfaces defensivas",
+          "text": "He notado que cuando estoy ansiosa, diseño interfaces con demasiadas advertencias, demasiados mensajes de confirmación, demasiadas validaciones. Es como si proyectara mi necesidad de control en cada formulario. Curioso cómo nuestro estado emocional se cuela en cada decisión de diseño.",
+          "tags": ["UX", "Psicología", "Ansiedad"]
+        },
+        {
+          "date": "2 Dic 2024",
+          "title": "El sesgo de confirmación en el debugging",
+          "text": "Cuando estoy convencida de que el bug está en el backend, solo busco evidencia de que está en el backend. Ignoro completamente que podría ser el CSS. El sesgo de confirmación en programación es real: buscamos lo que queremos encontrar, no lo que realmente está roto.",
+          "tags": ["Debug", "Sesgos cognitivos"]
+        },
+        {
+          "date": "30 Nov 2024",
+          "title": "La tolerancia a la frustración y el arte del debug",
+          "text": "He aprendido que el debugging no es solo encontrar errores, es entrenar la tolerancia a la frustración. Cada bug que resuelvo es una pequeña victoria contra mi impulso de rendirme. Es terapéutico de una forma extraña.",
+          "tags": ["Debug", "Resiliencia", "Crecimiento"]
+        }
+      ]
+    },
+
+    "beforeAfter": {
+      "title": "Antes / Después",
+      "entries": [
+        {
+          "date": "5 Dic 2024",
+          "title": "Museo Virtual Leiva'n Roll: Cuando una idea simple se transforma",
+          "before": {
+            "description": "La idea original: un museo virtual sencillo. Limpio. Solo mostrar artistas y canciones del proyecto Leiva'n Roll. Nada más."
+          },
+          "after": {
+            "description": "Lo que se convirtió: una experiencia interactiva completa con Maese como guía personalizable, burbujas de información específica según el avatar, enlaces directos a Spotify y YouTube, y un easter egg en el proyector de video con los créditos. Todo un descubrimiento musical."
+          },
+          "decision": "¿Qué pasó? Empecé y las ideas no paraban de surgir... Si Maese podía ser guía, ¿por qué no dejarlo personalizable? Y si cada caracterización cambiaba el avatar, ¿por qué no hacer que traiga información específica? Y si el objetivo era descubrir música... mejor facilitar los enlaces directos. Una cosa llevó a la otra. Así funciona mi proceso creativo: empiezo en un punto A y termino en un punto Z que ni imaginaba.",
+          "discarded": "Ideas descartadas: En un momento pensé en hacer el museo completamente en 3D con WebGL... pero era demasiado complejo y perdía el foco. También barajé añadir un sistema de votación para los artistas, pero habría desviado la atención de lo importante: descubrir y disfrutar la música.",
+          "tags": [
+            "Museo Virtual",
+            "Evolución",
+            "Proceso Creativo",
+            "Leiva'n Roll"
+          ]
+        }
+      ]
+    },
+
+    "pastMeHatesThis": {
+      "title": "Mi Yo del Pasado Me Odiaría Por Esto",
+      "entries": [
+        {
+          "date": "4 Dic 2024",
+          "title": "Cuando pensaba que los IDs numéricos eran suficientes",
+          "text": "Mi yo de hace 2 años: 'Para qué voy a usar UUIDs si puedo usar 1, 2, 3...'. Mi yo actual después de tener colisiones en producción: 'Necesito terapia por esto'. Ahora uso UUIDs para todo y duermo tranquila. Lección: la escalabilidad no es opcional, es inevitable.",
+          "beforeThought": "Los IDs numéricos son simples y funcionan perfectamente.",
+          "afterRealization": "Hasta que necesitas merge de bases de datos o sincronización offline.",
+          "tags": ["Base de datos", "Errores del pasado"]
+        },
+        {
+          "date": "2 Dic 2024",
+          "title": "Mi guerra contra las variables descriptivas",
+          "text": "Solía nombrar variables así: x, y, data, tmp, arr. Pensaba que era 'eficiente'. Ahora cuando tengo que revisar ese código antiguo quiero viajar en el tiempo y darme una charla sobre clean code. ¿Qué hace 'tmp'? ¿Por qué 'x' tiene 200 líneas de vida? Nadie lo sabe.",
+          "beforeThought": "Nombres cortos = código rápido de escribir = más productividad.",
+          "afterRealization": "Nombres descriptivos = código que entiendes 6 meses después = productividad real.",
+          "tags": ["Clean Code", "Variables", "Naming"]
+        },
+        {
+          "date": "30 Nov 2024",
+          "title": "Cuando creía que los comentarios eran para débiles",
+          "text": "Plot twist: los comentarios no son para débiles, son para humanos. Mi yo del pasado escribía código 'autoexplicativo' que nadie entendía. Mi yo actual escribe comentarios que explican el POR QUÉ, no el QUÉ. El código dice qué hace, los comentarios dicen por qué existe.",
+          "beforeThought": "El código debe ser autoexplicativo, los comentarios sobran.",
+          "afterRealization": "El código explica el CÓMO, los comentarios explican el POR QUÉ y el CONTEXTO.",
+          "tags": ["Comentarios", "Documentación", "Evolución"]
+        }
+      ]
+    },
+
+    "inspirations": {
+      "title": "Cosas que Me Inspiran",
+      "entries": [
+        {
+          "icon": "📚",
+          "title": "Leer",
+          "text": "Todo tipo de cosas... desde fantasía hasta ensayos sobre diseño. Cada libro es una puerta a otra forma de pensar."
+        },
+        {
+          "icon": "🎨",
+          "title": "Libros de ilustración",
+          "text": "Hojear libros de ilustración es mi debilidad. Me puedo pasar horas mirando el trabajo de otros artistas, absorbiendo técnicas y estilos."
+        },
+        {
+          "icon": "📌",
+          "title": "Pinterest y Figma",
+          "text": "Busco en Pinterest, guardo referencias, y luego las organizo en mi mural de ideas en Figma. Es mi proceso para dar forma a lo que tengo en la cabeza."
+        },
+        {
+          "icon": "🌳",
+          "title": "Paseos por el campo o la ciudad",
+          "text": "Caminar sin rumbo fijo. Observar detalles que normalmente pasarían desapercibidos. Ahí es donde encuentro muchas ideas."
+        },
+        {
+          "icon": "🎵",
+          "title": "Música variada",
+          "text": "Desde Soul hasta Metal... mi playlist es un caos organizado. Cada estilo me pone en un mood diferente para crear."
+        },
+        {
+          "icon": "📖",
+          "title": "Visitar librerías",
+          "text": "Simplemente una de mis actividades favoritas. No necesito comprar nada, solo estar ahí rodeada de libros y posibilidades."
+        },
+        {
+          "icon": "✏️",
+          "title": "Dibujar",
+          "text": "A veces digital, a veces en papel. Dibujar es mi forma de desconectar y reconectar al mismo tiempo."
+        },
+        {
+          "icon": "🔍",
+          "title": "Rastrear cosas curiosas",
+          "text": "Soy rastreadora de objetos antiguos, raros, curiosos... Mercadillos, tiendas de segunda mano, rincones olvidados. Cada objeto tiene una historia."
+        }
+      ]
+    },
+
+    "ideasInProgress": {
+      "title": "Ideas en Proceso",
+      "entries": [
+        {
+          "date": "8 Dic 2024",
+          "title": "🎲 La Oca Personalizada",
+          "content": [
+            "Jugando con mi hijo a la oca me di cuenta de algo: él tiene sus propias coletillas para todo. Cuando saca un 6 grita '¡6!! Tiro de nuevo porque me tocó 6...'. Cuando cae en un puente dice su versión de la regla. Son esas pequeñas cosas que hacen que cada partida sea única.",
+            "Y entonces se me ocurrió: ¿y si grabo todas esas frases y creo una versión digital del juego? Imagina una oca donde las acciones se narran con su propia voz, con sus propias palabras. Cada casilla especial tendría su audio personalizado.",
+            "Ah, y por supuesto, hay que incluir sus 'trucos'. Ese momento donde tira los dados 'de broma' una y otra vez hasta que saca un 4 o más para poder empezar la partida. Porque según él, esas no cuentan. Son tiros de prueba, ¿no?",
+            "Es uno de esos proyectos que quiero hacer simplemente porque me hace ilusión. No tiene que ser perfecto, solo tiene que capturar esos momentos que dentro de unos años me va a encantar recordar."
+          ],
+          "tags": ["Proyecto personal", "Ideas", "Familia"]
+        }
+      ]
+    },
+
+    "hiddenSurprises": {
+      "title": "Sorpresas Escondidas",
+      "entries": [
+        {
+          "date": "5 Dic 2024",
+          "title": "Noah: El Easter Egg Platformer",
+          "content": [
+            "Me encanta esconder pequeñas sorpresas en los sitios que creo... Es como dejar migas de pan para quien tenga curiosidad de explorar. Por eso añadí un easter egg donde Noah (mi personaje pixel art) cobra vida y salta entre los proyectos como si fueran plataformas.",
+            "La animación tiene 12 fases: Noah aparece caminando desde el header, cae con una curva suave, camina y corre por los botones de los proyectos, hace dos saltos (uno normal y otro con ataque contra un fantasma), y finalmente descansa mirando hacia atrás antes de desaparecer con un efecto glitch.",
+            "Todo está hecho con CSS puro y sprite sheets. Dura 18 segundos y se activa con un simple hover. Mi parte favorita es que el momento del ataque va en cámara lenta... porque si vas a hacer un ataque espectacular, mejor que se aprecie cada frame ¿no?"
+          ],
+          "hint": "Pista: Visita la sección de Portfolio y pasa el cursor sobre la galería de proyectos...",
+          "tags": ["Easter Egg", "CSS Animation", "Pixel Art", "UX Design"]
+        },
+        {
+          "date": "5 Dic 2024",
+          "title": "Detalles que hacen la diferencia",
+          "content": [
+            "Los easter eggs no son solo 'extras divertidos'. Son una forma de conectar con quien visita tu trabajo. Cuando alguien descubre algo escondido, se siente parte de un secreto compartido. Es como un guiño cómplice entre quien crea y quien explora."
+          ],
+          "tags": ["UX", "Diseño", "Conexión"]
+        }
+      ]
+    }
+  }
+}

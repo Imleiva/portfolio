@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const PsychologicalPatterns = () => {
-  const patterns = [
+  const { t } = useTranslation();
+  const patterns = t("psychologicalPatterns.entries", { returnObjects: true });
+  /*const patterns = [
     {
       date: "4 Dic 2024",
       title: "La ansiedad diseña interfaces defensivas",
@@ -20,14 +23,14 @@ const PsychologicalPatterns = () => {
       text: "He aprendido que el debugging no es solo encontrar errores, es entrenar la tolerancia a la frustración. Cada bug que resuelvo es una pequeña victoria contra mi impulso de rendirme. Es terapéutico de una forma extraña.",
       tags: ["Debug", "Resiliencia", "Crecimiento"],
     },
-  ];
+  ];*/
 
   return (
     <div className="blog-section">
       <div className="blog-section-header">
         <span className="blog-section-icon">🧠</span>
         <h2 className="blog-section-title">
-          Patrones Psicológicos en el Código
+          {t("psychologicalPatterns.title")}
         </h2>
       </div>
       <div className="blog-section-content">

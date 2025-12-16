@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const BookReviews = () => {
-  const books = [
+  const { t } = useTranslation();
+  const books = t("bookReviews.entries", { returnObjects: true });
+  /*const books = [
     {
       date: "5 Dic 2024",
       title: "Cartas de Alejandra Pizarnik",
@@ -16,13 +19,13 @@ const BookReviews = () => {
         "Poe construía atmósferas perfectas con palabras precisas. Cada frase te lleva un paso más adentro. Leo sus cuentos y pienso en arquitectura de código: cómo cada función lleva a la siguiente, cómo construyes suspense (o en nuestro caso, flujo) hasta que todo converge en un punto. 'El corazón delator' es como un bug que no puedes ignorar... está ahí, latiendo, recordándote que algo no está bien hasta que lo arreglas.",
       tags: ["Literatura", "Estructura", "Narrativa"],
     },
-  ];
+  ];*/
 
   return (
     <div className="blog-section">
       <div className="blog-section-header">
         <span className="blog-section-icon">📚</span>
-        <h2 className="blog-section-title">Lecturas</h2>
+        <h2 className="blog-section-title">{t("bookReviews.title")}</h2>
       </div>
       <div className="blog-section-content">
         {books.map((book, index) => (

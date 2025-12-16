@@ -6,3 +6,4 @@ export { default as BeforeAfter } from "./BeforeAfter";
 export { default as PastMeHatesThis } from "./PastMeHatesThis";
 export { default as Inspirations } from "./Inspirations";
 export { default as HiddenSurprises } from "./HiddenSurprises";
+export { default as IdeasInProgress } from "./IdeasInProgress";

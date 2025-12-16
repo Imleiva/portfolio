@@ -1,0 +1,263 @@
+{
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Thoughts, code, art and everything in between commits",
+
+    "categories": {
+      "all": "All",
+      "debug": "Personal Debug",
+      "art": "Code as Art",
+      "books": "Books",
+      "psychology": "Psychology",
+      "projects": "Before/After",
+      "past": "Past Me Hates This",
+      "inspiration": "Inspiration",
+      "ideas": "Ideas in Progress",
+      "easterEggs": "Easter Eggs"
+    },
+
+    "microDebug": {
+      "title": "Personal Debug",
+      "entries": [
+        {
+          "date": "Dec 4, 2024",
+          "title": "The mystery of the missing z-index",
+          "text": "Bug of the day: I spent 2 hours looking for a div hidden behind a z-index. Turns out the problem wasn't the z-index... it had `display: none`. Sometimes the most obvious answers are the hardest to see.",
+          "tags": ["CSS", "Debug", "Lesson learned"]
+        },
+        {
+          "date": "Dec 3, 2024",
+          "title": "Emotional patch note",
+          "text": "Emotional patch note: today I gained +2 patience after discovering the bug was an extra space in a CSS class. One. Extra. Space. Deep breathing helps.",
+          "tags": ["Patience", "CSS", "Dev life"]
+        },
+        {
+          "date": "Dec 2, 2024",
+          "title": "The console.log I forgot to delete",
+          "text": "Pushed to production with 37 active console.log(). The site worked perfectly but my console looked like a WhatsApp chat at 3am. Reminder: review before pushing.",
+          "tags": ["JavaScript", "Oops", "Production"]
+        }
+      ]
+    },
+
+    "codeAsArt": {
+      "title": "Code as Art",
+      "entries": [
+        {
+          "date": "Dec 10, 2024",
+          "title": "IOGraph: Turning code into visual art",
+          "content": [
+            "I just discovered IOGraph and I'm fascinated. It's an application that turns your mouse movements into contemporary art while you work. The idea is simple: you leave the program running in the background while coding, and after a while you come back and have a beautiful image of everything you've been doing.",
+            "What I love is that each coding session generates a unique composition. Larger circles appear when you stop to think, when you're reading code or debugging. The lines show how you jump between files, between browser and editor. It's literally a visual map of your thought process.",
+            "From now on I'm going to use it every time I code. It's fun, completely useless and totally free. But above all, it's a way to remember that even the most routine work can become something beautiful if you look at it from another angle."
+          ],
+          "tags": ["Tools", "Art", "Creative process"],
+          "link": {
+            "url": "https://iographica.com/",
+            "text": "Visit IOGraph"
+          }
+        },
+        {
+          "date": "Dec 4, 2024",
+          "title": "Recursion as dance",
+          "code": "function fibonacci(n) {\n  if (n <= 1) return n;\n  return fibonacci(n - 1) + fibonacci(n - 2);\n}",
+          "palette": [
+            "#7364d2",
+            "#5829a7",
+            "#97dffc",
+            "#8eb5f0",
+            "#858ae3",
+            "#4e148c"
+          ],
+          "poem": "Calling itself,\nagain and again,\nuntil finding the beginning.\nLike the echo in the mountain,\nlike the reflection in the mirror...\nthe code dances with itself.",
+          "description": "This Fibonacci algorithm is like a recursive dance. It calls itself in a hypnotic pattern, creating a cascade of numbers following nature's most famous sequence... The colors represent the depth of each call. Pure mathematical beauty.",
+          "tags": ["Algorithms", "Poetry", "Recursion"]
+        }
+      ]
+    },
+
+    "bookReviews": {
+      "title": "Book Reviews",
+      "entries": [
+        {
+          "date": "Dec 5, 2024",
+          "title": "Letters from Alejandra Pizarnik",
+          "review": "Yesterday I finished reading Pizarnik's letters... her creativity was exquisite, beauty in her oddness. She switched between philosophy, literature and journalism because she didn't fit any mold. She wrote with obsessive precision but also with a freedom that broke everything established. She read Artaud, Rimbaud, Baudelaire... she built herself from literature, even changing her own name. She was rebellious, eccentric, subversive against what was expected of her. Her letters are that constant dialogue with herself, with all that she was... as if she were programming her own identity, iterating until finding a version she could inhabit. That infinite search for the lost, that tension between rational precision and surrealist automatism... is what I feel when I create: searching for something I don't know if it exists but I need to find.",
+          "tags": ["Poetry", "Identity", "Creativity"]
+        },
+        {
+          "date": "Nov 15, 2024",
+          "title": "Tales of Edgar Allan Poe",
+          "review": "Poe built perfect atmospheres with precise words. Each sentence takes you one step deeper. I read his stories and think about code architecture: how each function leads to the next, how you build suspense (or in our case, flow) until everything converges at one point. 'The Tell-Tale Heart' is like a bug you can't ignore... it's there, beating, reminding you something isn't right until you fix it.",
+          "tags": ["Literature", "Structure", "Narrative"]
+        }
+      ]
+    },
+
+    "psychologicalPatterns": {
+      "title": "Psychological Patterns in Code",
+      "entries": [
+        {
+          "date": "Dec 4, 2024",
+          "title": "Anxiety designs defensive interfaces",
+          "text": "I've noticed that when I'm anxious, I design interfaces with too many warnings, too many confirmation messages, too many validations. It's as if I project my need for control into every form. Curious how our emotional state sneaks into every design decision.",
+          "tags": ["UX", "Psychology", "Anxiety"]
+        },
+        {
+          "date": "Dec 2, 2024",
+          "title": "Confirmation bias in debugging",
+          "text": "When I'm convinced the bug is in the backend, I only look for evidence that it's in the backend. I completely ignore that it could be the CSS. Confirmation bias in programming is real: we look for what we want to find, not what's actually broken.",
+          "tags": ["Debug", "Cognitive biases"]
+        },
+        {
+          "date": "Nov 30, 2024",
+          "title": "Frustration tolerance and the art of debugging",
+          "text": "I've learned that debugging isn't just finding errors, it's training frustration tolerance. Each bug I solve is a small victory against my impulse to give up. It's therapeutic in a strange way.",
+          "tags": ["Debug", "Resilience", "Growth"]
+        }
+      ]
+    },
+
+    "beforeAfter": {
+      "title": "Before / After",
+      "entries": [
+        {
+          "date": "Dec 5, 2024",
+          "title": "Leiva'n Roll Virtual Museum: When a simple idea transforms",
+          "before": {
+            "description": "The original idea: a simple virtual museum. Clean. Just show artists and songs from the Leiva'n Roll project. Nothing more."
+          },
+          "after": {
+            "description": "What it became: a complete interactive experience with Maese as a customizable guide, information bubbles specific to each avatar, direct links to Spotify and YouTube, and an easter egg in the video projector with credits. A complete musical discovery."
+          },
+          "decision": "What happened? I started and ideas kept coming... If Maese could be a guide, why not make him customizable? And if each characterization changed the avatar, why not make it bring specific information? And if the goal was to discover music... better to provide direct links. One thing led to another. That's how my creative process works: I start at point A and end at point Z that I never imagined.",
+          "discarded": "Discarded ideas: At one point I thought about making the museum completely in 3D with WebGL... but it was too complex and lost focus. I also considered adding a voting system for artists, but it would have diverted attention from what's important: discovering and enjoying the music.",
+          "tags": [
+            "Virtual Museum",
+            "Evolution",
+            "Creative Process",
+            "Leiva'n Roll"
+          ]
+        }
+      ]
+    },
+
+    "pastMeHatesThis": {
+      "title": "My Past Self Would Hate This",
+      "entries": [
+        {
+          "date": "Dec 4, 2024",
+          "title": "When I thought numeric IDs were enough",
+          "text": "My 2-years-ago self: 'Why would I use UUIDs if I can use 1, 2, 3...'. My current self after having collisions in production: 'I need therapy for this'. Now I use UUIDs for everything and sleep peacefully. Lesson: scalability isn't optional, it's inevitable.",
+          "beforeThought": "Numeric IDs are simple and work perfectly.",
+          "afterRealization": "Until you need database merges or offline synchronization.",
+          "tags": ["Database", "Past mistakes"]
+        },
+        {
+          "date": "Dec 2, 2024",
+          "title": "My war against descriptive variables",
+          "text": "I used to name variables like this: x, y, data, tmp, arr. I thought it was 'efficient'. Now when I have to review that old code I want to time travel and give myself a talk about clean code. What does 'tmp' do? Why does 'x' have 200 lines of life? Nobody knows.",
+          "beforeThought": "Short names = fast code writing = more productivity.",
+          "afterRealization": "Descriptive names = code you understand 6 months later = real productivity.",
+          "tags": ["Clean Code", "Variables", "Naming"]
+        },
+        {
+          "date": "Nov 30, 2024",
+          "title": "When I believed comments were for the weak",
+          "text": "Plot twist: comments aren't for the weak, they're for humans. My past self wrote 'self-explanatory' code that nobody understood. My current self writes comments that explain the WHY, not the WHAT. Code says what it does, comments say why it exists.",
+          "beforeThought": "Code should be self-explanatory, comments are unnecessary.",
+          "afterRealization": "Code explains the HOW, comments explain the WHY and the CONTEXT.",
+          "tags": ["Comments", "Documentation", "Evolution"]
+        }
+      ]
+    },
+
+    "inspirations": {
+      "title": "Things That Inspire Me",
+      "entries": [
+        {
+          "icon": "📚",
+          "title": "Reading",
+          "text": "All kinds of things... from fantasy to design essays. Every book is a door to another way of thinking."
+        },
+        {
+          "icon": "🎨",
+          "title": "Illustration books",
+          "text": "Browsing illustration books is my weakness. I can spend hours looking at other artists' work, absorbing techniques and styles."
+        },
+        {
+          "icon": "📌",
+          "title": "Pinterest and Figma",
+          "text": "I search on Pinterest, save references, and then organize them in my idea board in Figma. It's my process for shaping what I have in my head."
+        },
+        {
+          "icon": "🌳",
+          "title": "Walks in the countryside or city",
+          "text": "Walking without a fixed direction. Observing details that would normally go unnoticed. That's where I find many ideas."
+        },
+        {
+          "icon": "🎵",
+          "title": "Varied music",
+          "text": "From Soul to Metal... my playlist is organized chaos. Each style puts me in a different mood to create."
+        },
+        {
+          "icon": "📖",
+          "title": "Visiting bookstores",
+          "text": "Simply one of my favorite activities. I don't need to buy anything, just be there surrounded by books and possibilities."
+        },
+        {
+          "icon": "✏️",
+          "title": "Drawing",
+          "text": "Sometimes digital, sometimes on paper. Drawing is my way of disconnecting and reconnecting at the same time."
+        },
+        {
+          "icon": "🔍",
+          "title": "Hunting curious things",
+          "text": "I'm a tracker of antique, rare, curious objects... Flea markets, second-hand shops, forgotten corners. Every object has a story."
+        }
+      ]
+    },
+
+    "ideasInProgress": {
+      "title": "Ideas in Progress",
+      "entries": [
+        {
+          "date": "Dec 8, 2024",
+          "title": "🎲 The Custom Goose Game",
+          "content": [
+            "Playing the goose game with my son I realized something: he has his own catchphrases for everything. When he rolls a 6 he shouts '6!! I roll again because I got 6...'. When he lands on a bridge he says his version of the rule. These little things make each game unique.",
+            "And then it occurred to me: what if I record all those phrases and create a digital version of the game? Imagine a goose game where actions are narrated in his own voice, with his own words. Each special square would have its personalized audio.",
+            "Oh, and of course, I have to include his 'tricks'. That moment where he rolls the dice 'for practice' over and over until he gets a 4 or more to start the game. Because according to him, those don't count. They're test rolls, right?",
+            "It's one of those projects I want to do simply because it excites me. It doesn't have to be perfect, it just has to capture those moments that in a few years I'm going to love remembering."
+          ],
+          "tags": ["Personal project", "Ideas", "Family"]
+        }
+      ]
+    },
+
+    "hiddenSurprises": {
+      "title": "Hidden Surprises",
+      "entries": [
+        {
+          "date": "Dec 5, 2024",
+          "title": "Noah: The Easter Egg Platformer",
+          "content": [
+            "I love hiding little surprises in the sites I create... It's like leaving breadcrumbs for those curious enough to explore. That's why I added an easter egg where Noah (my pixel art character) comes to life and jumps between projects as if they were platforms.",
+            "The animation has 12 phases: Noah appears walking from the header, falls with a smooth curve, walks and runs through the project buttons, makes two jumps (one normal and one with an attack against a ghost), and finally rests looking back before disappearing with a glitch effect.",
+            "Everything is done with pure CSS and sprite sheets. It lasts 18 seconds and is activated with a simple hover. My favorite part is that the attack moment goes in slow motion... because if you're going to do a spectacular attack, better to appreciate each frame, right?"
+          ],
+          "hint": "Hint: Visit the Portfolio section and hover over the project gallery...",
+          "tags": ["Easter Egg", "CSS Animation", "Pixel Art", "UX Design"]
+        },
+        {
+          "date": "Dec 5, 2024",
+          "title": "Details that make a difference",
+          "content": [
+            "Easter eggs aren't just 'fun extras'. They're a way to connect with whoever visits your work. When someone discovers something hidden, they feel part of a shared secret. It's like a complicit wink between creator and explorer."
+          ],
+          "tags": ["UX", "Design", "Connection"]
+        }
+      ]
+    }
+  }
+}

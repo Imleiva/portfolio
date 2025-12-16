@@ -1,45 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const PastMeHatesThis = () => {
-  const confessions = [
-    {
-      date: "4 Dic 2024",
-      title: "Cuando pensaba que los IDs numéricos eran suficientes",
-      text: "Mi yo de hace 2 años: 'Para qué voy a usar UUIDs si puedo usar 1, 2, 3...'. Mi yo actual después de tener colisiones en producción: 'Necesito terapia por esto'. Ahora uso UUIDs para todo y duermo tranquila. Lección: la escalabilidad no es opcional, es inevitable.",
-      beforeThought: "Los IDs numéricos son simples y funcionan perfectamente.",
-      afterRealization:
-        "Hasta que necesitas merge de bases de datos o sincronización offline.",
-      tags: ["Base de datos", "Errores del pasado"],
-    },
-    {
-      date: "2 Dic 2024",
-      title: "Mi guerra contra las variables descriptivas",
-      text: "Solía nombrar variables así: x, y, data, tmp, arr. Pensaba que era 'eficiente'. Ahora cuando tengo que revisar ese código antiguo quiero viajar en el tiempo y darme una charla sobre clean code. ¿Qué hace 'tmp'? ¿Por qué 'x' tiene 200 líneas de vida? Nadie lo sabe.",
-      beforeThought:
-        "Nombres cortos = código rápido de escribir = más productividad.",
-      afterRealization:
-        "Nombres descriptivos = código que entiendes 6 meses después = productividad real.",
-      tags: ["Clean Code", "Variables", "Naming"],
-    },
-    {
-      date: "30 Nov 2024",
-      title: "Cuando creía que los comentarios eran para débiles",
-      text: "Plot twist: los comentarios no son para débiles, son para humanos. Mi yo del pasado escribía código 'autoexplicativo' que nadie entendía. Mi yo actual escribe comentarios que explican el POR QUÉ, no el QUÉ. El código dice qué hace, los comentarios dicen por qué existe.",
-      beforeThought:
-        "El código debe ser autoexplicativo, los comentarios sobran.",
-      afterRealization:
-        "El código explica el CÓMO, los comentarios explican el POR QUÉ y el CONTEXTO.",
-      tags: ["Comentarios", "Documentación", "Evolución"],
-    },
-  ];
+  const { t } = useTranslation();
+  const confessions = t("pastMeHatesThis.entries", { returnObjects: true });
 
   return (
     <div className="blog-section">
       <div className="blog-section-header">
         <span className="blog-section-icon">💡</span>
-        <h2 className="blog-section-title">
-          Mi Yo del Pasado Me Odiaría Por Esto
-        </h2>
+        <h2 className="blog-section-title">{t("pastMeHatesThis.title")}</h2>
       </div>
       <div className="blog-section-content">
         {confessions.map((confession, index) => (

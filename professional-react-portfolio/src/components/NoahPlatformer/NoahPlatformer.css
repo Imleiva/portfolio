@@ -28,9 +28,83 @@
   }
 }
 
+/* Animación de frames para primer salto con énfasis en caída (frames 3-4-5 más largos) */
+@keyframes noahJumpFramesFall {
+  0% {
+    background-position: 0 0;
+  }
+  15% {
+    background-position: -64px 0;
+  }
+  30% {
+    background-position: -128px 0;
+  }
+  50% {
+    background-position: -192px 0;
+  }
+  100% {
+    background-position: -256px 0;
+  }
+}
+
 /* Animación de frames para ataque (16 frames) */
 @keyframes noahAttackFrames {
   to {
+    background-position: -1024px 0;
+  }
+}
+
+/* Animación de frames para ataque móvil con énfasis en frame 11 */
+@keyframes noahAttackFramesMobile {
+  0% {
+    background-position: 0 0;
+  }
+  6% {
+    background-position: -64px 0;
+  }
+  12% {
+    background-position: -128px 0;
+  }
+  18% {
+    background-position: -192px 0;
+  }
+  24% {
+    background-position: -256px 0;
+  }
+  30% {
+    background-position: -320px 0;
+  }
+  36% {
+    background-position: -384px 0;
+  }
+  42% {
+    background-position: -448px 0;
+  }
+  48% {
+    background-position: -512px 0;
+  }
+  54% {
+    background-position: -576px 0;
+  }
+  60% {
+    background-position: -640px 0;
+  }
+  75% {
+    background-position: -704px 0;
+  } /* Frame 11 dura del 60% al 75% (15% del tiempo) */
+  81% {
+    background-position: -768px 0;
+  }
+  87% {
+    background-position: -832px 0;
+  }
+  93% {
+    background-position: -896px 0;
+  }
+  96% {
+    background-position: -960px 0;
+  }
+  100% {
     background-position: -1024px 0;
   }
 }
@@ -329,8 +403,8 @@
   }
 }
 
-/* Responsive - Ocultar en pantallas pequeñas */
-@media (max-width: 1400px) {
+/* Responsive - Ocultar desktop en pantallas pequeñas pero mantener móvil */
+@media (max-width: 1400px) and (min-width: 769px) {
   .noah-platformer {
     display: none;
   }
@@ -407,5 +481,468 @@
     opacity: 0;
     transform: scale(0) rotate(180deg);
     filter: blur(5px) brightness(5);
+  }
+}
+
+/* ============================================ */
+/* ANIMACIONES MÓVIL */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  /* Asegurar que Noah sea visible en móvil */
+  .noah-platformer {
+    z-index: 10001 !important;
+    bottom: auto !important;
+    display: block !important;
+  }
+
+  .noah-mobile {
+    z-index: 10001 !important;
+    bottom: auto !important;
+    display: block !important;
+  }
+
+  /* Fase 0: Aparecer caminando por el header */
+  .noah-sprite-appearing-mobile {
+    top: 17px !important;
+    bottom: auto !important;
+    background-size: 256px 64px !important;
+    animation: noahAppearMobile 1s linear forwards,
+      noahWalkFrames 0.6s steps(4) infinite !important;
+  }
+
+  @keyframes noahAppearMobile {
+    0% {
+      left: 15%;
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    50% {
+      opacity: 1;
+      left: 25%;
+      transform: translateX(-50%);
+    }
+    100% {
+      left: 35%;
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Fase 1: Saltar del header directamente al botón de Leiva Roll */
+  .noah-sprite-falling-mobile {
+    bottom: auto !important;
+    background-size: 320px 64px !important;
+    animation: noahFallMobile 1.2s cubic-bezier(0.33, 0, 0.67, 1) forwards,
+      noahJumpFrames 1.2s steps(5) 1 !important;
+  }
+
+  @keyframes noahFallMobile {
+    0% {
+      top: 15px;
+      left: 35%;
+      transform: translateX(-50%);
+    }
+    100% {
+      top: var(--leivaroll-top, 340px);
+      left: var(--leivaroll-left, 200px);
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Fase 2: Saltar al botón de Leiva Roll */
+  .noah-sprite-jump-museo {
+    bottom: auto !important;
+    background-size: 320px 64px !important;
+    animation: noahJumpLeivaRoll 1s ease-out forwards,
+      noahJumpFramesFall 1s forwards !important;
+  }
+
+  @keyframes noahJumpLeivaRoll {
+    0% {
+      top: 15px;
+      left: 35%;
+      transform: translateX(-50%);
+    }
+    30% {
+      top: 5px;
+      left: calc((35% + var(--leivaroll-left, 200px)) / 2);
+      transform: translateX(-50%);
+    }
+    100% {
+      top: var(--leivaroll-top, 340px);
+      left: var(--leivaroll-left, 200px);
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Fase 3: Aterrizar en botón Leiva Roll */
+  .noah-sprite-on-museo {
+    top: var(--leivaroll-top, 340px) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) scaleX(-1) !important; /* Voltear hacia la derecha */
+    background-size: 256px 64px !important;
+    animation: noahWalkOnButton 0.8s linear forwards,
+      noahWalkFrames 0.8s steps(4) infinite !important;
+  }
+
+  @keyframes noahWalkOnButton {
+    0% {
+      left: var(--leivaroll-left, 200px);
+    }
+    100% {
+      left: calc(var(--leivaroll-left, 200px) - 50px);
+    }
+  }
+
+  /* Fase 4: Saltar a plataforma flotante (izquierda del logo Noahverso) */
+  .noah-sprite-jump-platform {
+    bottom: auto !important;
+    background-size: 320px 64px !important;
+    animation: noahJumpPlatform 1s ease-out forwards,
+      noahJumpFrames 1s steps(5) 1 !important;
+  }
+
+  @keyframes noahJumpPlatform {
+    0% {
+      top: var(--leivaroll-top, 340px);
+      left: calc(var(--leivaroll-left, 200px) - 50px);
+      transform: translateX(-50%) scaleX(-1);
+    }
+    30% {
+      top: calc(var(--leivaroll-top, 340px) - 15px);
+      left: calc(
+        (var(--leivaroll-left, 200px) + var(--platform-left, 250px)) / 2 - 40px
+      );
+      transform: translateX(-50%) scaleX(-1);
+    }
+    100% {
+      top: calc(var(--platform-top, 300px) - 58px);
+      left: var(--platform-left, 250px);
+      transform: translateX(-50%) scaleX(-1);
+    }
+  }
+
+  /* Fase 5: En la plataforma */
+  .noah-sprite-on-platform {
+    top: calc(var(--platform-top, 480px) - 55px) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important; /* Mirando hacia la izquierda */
+    background-size: 256px 64px !important;
+    animation: noahWalkOnPlatform 0.5s linear forwards,
+      noahWalkFrames 0.5s steps(4) 1 !important;
+  }
+
+  @keyframes noahWalkOnPlatform {
+    0% {
+      left: var(--platform-left, 250px);
+    }
+    100% {
+      left: calc(var(--platform-left, 250px) + 40px);
+    }
+  }
+
+  /* Fase 6: Saltar con ataque desde plataforma a Noahverso */
+  .noah-sprite-jumpattack-mobile {
+    bottom: auto !important;
+    background-size: 1024px 64px !important;
+    animation: noahJumpAttackMobile 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)
+        forwards,
+      noahAttackFrames 1.5s steps(16) 1 !important;
+  }
+
+  @keyframes noahJumpAttackMobile {
+    0% {
+      top: calc(var(--platform-top, 470px) - 55px);
+      left: calc(var(--platform-left, 250px) + 40px);
+      transform: translateX(-50%);
+    }
+    20% {
+      top: calc(var(--platform-top, 470px) - 80px);
+      left: calc(var(--platform-left, 250px) + 50px);
+      transform: translateX(-50%);
+    }
+    50% {
+      top: calc(
+        (var(--platform-top, 470px) + var(--noahverso-top, 650px)) / 2 - 40px
+      );
+      left: calc(
+        (var(--platform-left, 250px) + var(--noahverso-left, 200px)) / 2 + 40px
+      );
+      transform: translateX(-50%);
+    }
+    80% {
+      top: calc(var(--noahverso-top, 648px) - 20px);
+      left: calc(var(--noahverso-left, 200px));
+      transform: translateX(-50%);
+    }
+    100% {
+      top: var(--noahverso-top, 620px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Fase 6.5: Saltitos de victoria + glitch */
+  .noah-sprite-victory-mobile {
+    bottom: auto !important;
+    background-size: 320px 64px !important;
+    animation: noahVictoryJumpsGlitch 1.5s ease-in-out forwards,
+      noahJumpFrames 0.5s steps(5) 3 !important;
+    /* Asegura que la base sea la misma que el final de jumpattack-mobile */
+    /* Offset para que los pies de Noah queden justo sobre la parte superior del botón */
+    top: calc(var(--noahverso-top, 650px) - 8px) !important;
+    left: var(--noahverso-left, 200px) !important;
+  }
+
+  @keyframes noahVictoryJumpsGlitch {
+    0% {
+      top: calc(var(--noahverso-top, 650px) - 8px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+      opacity: 1;
+      filter: none;
+    }
+    15% {
+      top: calc(var(--noahverso-top, 650px) - 38px - 14px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+      opacity: 1;
+      filter: hue-rotate(30deg) brightness(1.2);
+    }
+    30% {
+      top: calc(var(--noahverso-top, 650px) - 38px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+      opacity: 0.8;
+      filter: contrast(1.5) brightness(0.8);
+    }
+    45% {
+      top: calc(var(--noahverso-top, 650px) - 38px - 12px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%) scaleX(1.05);
+      opacity: 0.6;
+      filter: blur(1px) hue-rotate(-20deg);
+    }
+    60% {
+      top: calc(var(--noahverso-top, 650px) - 38px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%) scaleX(0.98);
+      opacity: 0.4;
+      filter: brightness(1.5) blur(2px);
+    }
+    80% {
+      top: calc(var(--noahverso-top, 650px) - 38px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%) scale(1.05) translateY(-2px);
+      opacity: 0.2;
+      filter: blur(3px) contrast(2);
+    }
+    100% {
+      top: calc(var(--noahverso-top, 650px) - 38px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%) scale(0.8) translateY(-5px);
+      opacity: 0;
+      filter: blur(5px) brightness(2);
+    }
+  }
+
+  @keyframes noahVictoryJumps {
+    0% {
+      top: var(--noahverso-top, 635px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+    }
+    20% {
+      top: calc(var(--noahverso-top, 635px) - 10px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+    }
+    40% {
+      top: var(--noahverso-top, 635px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+    }
+    60% {
+      top: calc(var(--noahverso-top, 635px) - 10px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+    }
+    80%,
+    100% {
+      top: var(--noahverso-top, 635px);
+      left: var(--noahverso-left, 200px);
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Fase 7: Descansar */
+  .noah-sprite-rest-mobile {
+    top: var(--noahverso-top, 635px) !important;
+    left: var(--noahverso-left, 200px) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    background-size: 256px 64px !important;
+    animation: noahRestFrames 0.8s steps(4) infinite !important;
+  }
+
+  /* Fase 9: Desaparecer con glitch */
+  .noah-sprite-disappear-mobile {
+    top: var(--noahverso-top, 635px) !important;
+    left: var(--noahverso-left, 200px) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    background-size: 256px 64px !important;
+    animation: noahDisappearGlitchMobile 1.5s ease-in-out forwards,
+      noahRestFrames 0.8s steps(4) infinite !important;
+  }
+
+  @keyframes noahDisappearGlitchMobile {
+    0% {
+      opacity: 1;
+      filter: none;
+      transform: translateX(-50%);
+    }
+    20% {
+      opacity: 0.8;
+      filter: hue-rotate(90deg);
+      transform: translateX(calc(-50% + 5px));
+    }
+    40% {
+      opacity: 0.6;
+      filter: contrast(2);
+      transform: translateX(calc(-50% - 5px));
+    }
+    60% {
+      opacity: 0.4;
+      filter: saturate(3);
+      transform: translateX(-50%) translateY(5px);
+    }
+    80% {
+      opacity: 0.2;
+      filter: blur(2px);
+      transform: translateX(-50%);
+    }
+    100% {
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateX(-50%) scale(0.5);
+    }
+  }
+
+  /* Enemigo en móvil */
+  .noah-enemy-mobile {
+    position: fixed;
+    top: var(--noahverso-top, 535px) !important;
+    left: calc(var(--noahverso-left, 190px) + 35px) !important;
+    bottom: auto !important;
+    width: 64px !important;
+    height: 64px !important;
+    z-index: 10000 !important;
+    animation: enemyFloatMobile 2s ease-in-out infinite,
+      enemyAppear 0.5s ease-out !important;
+  }
+
+  @keyframes enemyFloatMobile {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-8px) scale(1.05);
+    }
+  }
+
+  /* Animación de golpe para enemigo móvil */
+  .noah-enemy-mobile.noah-enemy-hit {
+    animation: enemyHitMobile 1s ease-out forwards !important;
+  }
+
+  @keyframes enemyHitMobile {
+    0% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1) rotate(0deg);
+      filter: brightness(1);
+    }
+    20% {
+      transform: translateX(-50%) scale(1.3) rotate(20deg);
+      filter: brightness(2) hue-rotate(90deg);
+    }
+    40% {
+      transform: translateX(-50%) scale(0.8) rotate(-15deg);
+      filter: brightness(0.5);
+    }
+    60% {
+      transform: translateX(-50%) scale(1.1) rotate(10deg);
+      opacity: 0.6;
+    }
+    80% {
+      transform: translateX(-50%) scale(0.5) rotate(-30deg);
+      opacity: 0.2;
+      filter: blur(2px) brightness(3);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0) rotate(180deg);
+      filter: blur(5px) brightness(5);
+    }
+  }
+
+  /* Plataforma flotante temporal */
+  .noah-floating-platform {
+    position: fixed;
+    top: 445px !important;
+    left: 70%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 20px;
+    background: linear-gradient(
+      135deg,
+      rgba(115, 100, 210, 0.8),
+      rgba(88, 41, 167, 0.8)
+    );
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(115, 100, 210, 0.5),
+      0 0 40px rgba(88, 41, 167, 0.3);
+    z-index: 1000;
+    animation: platformFloat 2s ease-in-out infinite,
+      platformFadeIn 0.5s ease-out;
+  }
+
+  @keyframes platformFloat {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  @keyframes platformFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
+
+  @keyframes platformFadeOut {
+    from {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.5);
+    }
+  }
+
+  .noah-floating-platform.fade-out {
+    animation: platformFloat 2s ease-in-out infinite,
+      platformFadeOut 0.8s ease-in forwards !important;
   }
 }

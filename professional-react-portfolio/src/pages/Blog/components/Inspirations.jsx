@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Inspirations = () => {
-  const inspirations = [
+  const { t } = useTranslation();
+  const inspirations = t("inspirations.entries", { returnObjects: true });
+  /*const inspirations = [
     {
       icon: "📚",
       title: "Leer",
@@ -42,13 +45,13 @@ const Inspirations = () => {
       title: "Rastrear cosas curiosas",
       text: "Soy rastreadora de objetos antiguos, raros, curiosos... Mercadillos, tiendas de segunda mano, rincones olvidados. Cada objeto tiene una historia.",
     },
-  ];
+  ];*/
 
   return (
     <div className="blog-section">
       <div className="blog-section-header">
         <span className="blog-section-icon">✨</span>
-        <h2 className="blog-section-title">Cosas que Me Inspiran</h2>
+        <h2 className="blog-section-title">{t("inspirations.title")}</h2>
       </div>
       <div className="inspiration-grid">
         {inspirations.map((inspiration, index) => (
