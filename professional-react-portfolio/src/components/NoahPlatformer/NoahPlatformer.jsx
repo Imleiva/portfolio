@@ -72,262 +72,100 @@ const NoahPlatformer = () => {
 
   // Detectar cuando el usuario hace hover sobre el grid (desktop) o entra en viewport (móvil)
   useEffect(() => {
-    console.log(
-      "🔍 NoahPlatformer - isMobile:",
-      isMobile,
-      "window.innerWidth:",
-      window.innerWidth
-    );
-
     const portfolioGrid = document.querySelector(".portfolio-grid");
     let hoverTimeout = null;
     let observerTimeout = null;
 
-    // Desktop: hover
-    const handleMouseEnter = () => {
-      if (!isPlaying && !isMobile) {
-        console.log("Hover detectado! Esperando 1 segundo...");
-        hoverTimeout = setTimeout(() => {
-          console.log("Iniciando animación desktop");
-          startSequence();
-        }, 800);
-      }
-    };
-
-    const handleMouseLeave = () => {
-      if (hoverTimeout) {
-        console.log("Hover cancelado antes de iniciar animación");
-        clearTimeout(hoverTimeout);
-        hoverTimeout = null;
-      }
-    };
-
-    // Móvil: Intersection Observer - observar el botón de Noahverso
+    // Intersection Observer para activar animación solo cuando la grid está 100% visible (desktop y móvil)
     let observer;
-    if (isMobile) {
-      // Buscar el botón de Noahverso específicamente
-      console.log("📱 Modo móvil detectado, buscando botón de Noahverso...");
+    let attempts = 0;
+    const maxAttempts = 20; // Máximo 2 segundos (20 * 100ms)
 
-      let attempts = 0;
-      const maxAttempts = 20; // Máximo 2 segundos (20 * 100ms)
+    const setupObserver = () => {
+      attempts++;
+      const portfolioGrid = document.querySelector(".portfolio-grid");
+      if (!portfolioGrid && attempts < maxAttempts) {
+        setTimeout(setupObserver, 100);
+        return;
+      }
+      if (!portfolioGrid) return;
 
-      // Esperar a que los elementos se rendericen
-      const setupObserver = () => {
-        attempts++;
-
-        // Buscar específicamente los links de proyectos con selectores más específicos
-        const allLinks = document.querySelectorAll(
-          '.project-link, a[href*="/portfolio/"]'
-        );
-        console.log(
-          `🔗 Intento ${attempts}: Links encontrados:`,
-          allLinks.length
-        );
-
-        // Mostrar todos los hrefs encontrados para debug
-        if (allLinks.length > 0) {
-          console.log("📋 Links encontrados:");
-          allLinks.forEach((link, i) => {
-            console.log(`  ${i}: ${link.href} - clase: ${link.className}`);
-          });
-        }
-
-        if (allLinks.length === 0 && attempts < maxAttempts) {
-          console.log("⏳ No hay links aún, reintentando en 100ms...");
-          setTimeout(setupObserver, 100);
-          return;
-        }
-
-        if (allLinks.length === 0) {
-          console.error(
-            "❌ Timeout: No se encontraron links después de 20 intentos"
-          );
-          return;
-        }
-
-        // Buscar específicamente el link de Noahverso
-        const noahversoButton = Array.from(allLinks).find(
-          (link) => link.href && link.href.includes("/portfolio/noahverso")
-        );
-
-        console.log("🎯 Botón de Noahverso encontrado:", noahversoButton);
-
-        if (noahversoButton) {
-          // Buscar la tarjeta completa (parent de la tarjeta)
-          const noahversoCard = noahversoButton.closest(".project-card");
-          const elementToObserve = noahversoCard || noahversoButton;
-
-          console.log("🃏 Card de Noahverso:", elementToObserve);
-
-          // Calcular posiciones AHORA, antes de hacer scroll
-          console.log("🔍 Buscando botones en los links:");
-          allLinks.forEach((link, i) => {
-            console.log(`  Link ${i}: ${link.href}`);
-          });
-
-          const leivaRollButton = Array.from(allLinks).find(
-            (link) => link.href && link.href.includes("/portfolio/leiva-roll")
-          );
-
-          console.log("🏛️ Botón de Leiva Roll encontrado:", leivaRollButton);
-
-          if (leivaRollButton) {
-            const leivaRollRect = leivaRollButton.getBoundingClientRect();
-            const noahversoRect = noahversoButton.getBoundingClientRect();
-
-            console.log("📏 Medidas Leiva Roll Button:", {
-              top: leivaRollRect.top,
-              left: leivaRollRect.left,
-              width: leivaRollRect.width,
-              height: leivaRollRect.height,
-              bottom: leivaRollRect.bottom,
-              scrollY: window.scrollY,
-            });
-
-            console.log("📏 Medidas Noahverso Button:", {
-              top: noahversoRect.top,
-              left: noahversoRect.left,
-              width: noahversoRect.width,
-              height: noahversoRect.height,
-              bottom: noahversoRect.bottom,
-              scrollY: window.scrollY,
-            });
-
-            // Ajustar posiciones para que Noah esté sobre los botones
-            // getBoundingClientRect().top es relativo al viewport, sumamos scrollY para posición absoluta
-            const calculatedPositions = {
-              leivaroll: {
-                top: leivaRollRect.top + window.scrollY - 46, // Un poco más arriba para mejor apoyo
-                left: leivaRollRect.left + leivaRollRect.width / 2,
-              },
-              noahverso: {
-                top: noahversoRect.top + window.scrollY - 46, // Un poco más arriba para mejor apoyo
-                left: noahversoRect.left + noahversoRect.width * 0.2, // Más hacia el borde izquierdo para dejar más espacio al enemigo
-              },
-              platform: {
-                // Posición de la plataforma basada en el centro del botón Noahverso
-                top: noahversoRect.top + window.scrollY - 140,
-                left: noahversoRect.left + noahversoRect.width / 2 - 120,
-              },
-            };
-
-            console.log(
-              "🎯 Posiciones calculadas finales:",
-              calculatedPositions
-            );
-
-            positionsRef.current = calculatedPositions; // Guardar en ref
-            setPositions(calculatedPositions); // Guardar en state para re-render
-            console.log("📍 Posiciones precalculadas:", calculatedPositions);
-          } else {
-            console.error("❌ No se encontró el botón de Leiva Roll");
-          }
-
-          observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                console.log(
-                  "👁️ Intersection:",
-                  entry.isIntersecting,
-                  "ratio:",
-                  entry.intersectionRatio,
-                  "isPlaying:",
-                  isPlaying,
-                  "playCount:",
-                  playCountRef.current,
-                  "maxPlays:",
-                  maxPlays
-                );
-
-                // Resetear el flag solo cuando el usuario sale del área Y la animación NO está en curso
-                if (
-                  !entry.isIntersecting &&
-                  playCountRef.current > 0 &&
-                  !isPlaying
-                ) {
-                  console.log(
-                    "🔄 Usuario salió del área (animación completada), pero el contador ya está en",
-                    playCountRef.current
-                  );
-                }
-
-                // Activar cuando la card esté 100% visible Y no esté reproduciéndose Y no haya alcanzado el límite
-                if (
-                  entry.isIntersecting &&
-                  entry.intersectionRatio === 1 &&
-                  !isPlaying &&
-                  playCountRef.current < maxPlays
-                ) {
-                  console.log(
-                    `✅ Noahverso 100% visible en móvil, iniciando animación (${
-                      playCountRef.current + 1
-                    }/${maxPlays})...`
-                  );
-                  playCountRef.current += 1; // Incrementar contador
-                  startSequence();
-                } else if (
-                  entry.isIntersecting &&
-                  entry.intersectionRatio === 1 &&
-                  playCountRef.current >= maxPlays
-                ) {
-                  console.log(
-                    `⏸️ Animación alcanzó el límite de reproducciones (${playCountRef.current}/${maxPlays})`
-                  );
-                }
-              });
-            },
-            {
-              threshold: 1.0, // Solo cuando está 100% visible
-              rootMargin: "-200px 0px -200px 0px", // Requiere que esté centrada en viewport
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Solo activar si está 100% visible, no está reproduciéndose y no ha alcanzado el límite
+            if (
+              entry.isIntersecting &&
+              entry.intersectionRatio === 1 &&
+              !isPlaying &&
+              playCountRef.current < maxPlays
+            ) {
+              playCountRef.current += 1;
+              startSequence();
             }
-          );
-
-          observerRef.current = observer; // Guardar referencia al observer
-
-          observer.observe(elementToObserve);
-          console.log("✔️ Observer configurado para Noahverso card");
-        } else if (attempts < maxAttempts) {
-          console.log("⏳ No se encontró Noahverso aún, reintentando...");
-          setTimeout(setupObserver, 100);
-        } else {
-          console.error("❌ Timeout: No se encontró el botón de Noahverso");
+          });
+        },
+        {
+          threshold: 1.0, // Solo cuando está 100% visible
+          rootMargin: "-200px 0px -200px 0px", // Requiere que esté centrada en viewport
         }
-      };
+      );
+      observerRef.current = observer;
+      observer.observe(portfolioGrid);
+    };
 
-      setupObserver();
-    }
-
-    // Desktop event listeners
-    if (portfolioGrid && !isMobile) {
-      portfolioGrid.addEventListener("mouseenter", handleMouseEnter);
-      portfolioGrid.addEventListener("mouseleave", handleMouseLeave);
-      console.log("Event listener agregado a:", portfolioGrid);
-    }
+    setupObserver();
 
     return () => {
-      if (hoverTimeout) clearTimeout(hoverTimeout);
-      if (observerTimeout) clearTimeout(observerTimeout);
       if (observer) observer.disconnect();
-      if (portfolioGrid && !isMobile) {
-        portfolioGrid.removeEventListener("mouseenter", handleMouseEnter);
-        portfolioGrid.removeEventListener("mouseleave", handleMouseLeave);
-      }
     };
   }, [isPlaying, isMobile]);
 
-  const startSequence = () => {
-    // Las posiciones ya están calculadas previamente en positionsRef
-    if (isMobile && !positionsRef.current) {
-      console.error(
-        "⚠️ No hay posiciones calculadas, no se puede iniciar la animación"
-      );
-      return;
+  // Recalcula posiciones justo antes de animar (móvil)
+  const recalculatePositions = () => {
+    const allLinks = document.querySelectorAll(
+      '.project-link, a[href*="/portfolio/"]'
+    );
+    const leivaRollButton = Array.from(allLinks).find(
+      (link) => link.href && link.href.includes("/portfolio/leiva-roll")
+    );
+    const noahversoButton = Array.from(allLinks).find(
+      (link) => link.href && link.href.includes("/portfolio/noahverso")
+    );
+    if (leivaRollButton && noahversoButton) {
+      const leivaRollRect = leivaRollButton.getBoundingClientRect();
+      const noahversoRect = noahversoButton.getBoundingClientRect();
+      const calculatedPositions = {
+        leivaroll: {
+          top: leivaRollRect.top + window.scrollY - 46,
+          left: leivaRollRect.left + leivaRollRect.width / 2,
+        },
+        noahverso: {
+          top: noahversoRect.top + window.scrollY - 46,
+          left: noahversoRect.left + noahversoRect.width * 0.2,
+        },
+        platform: {
+          top: noahversoRect.top + window.scrollY - 140,
+          left: noahversoRect.left + noahversoRect.width / 2 - 120,
+        },
+      };
+      positionsRef.current = calculatedPositions;
+      setPositions(calculatedPositions);
+      return true;
     }
+    return false;
+  };
 
+  const startSequence = () => {
+    // Para móvil, recalcula posiciones justo antes de animar
+    if (isMobile) {
+      const ok = recalculatePositions();
+      if (!ok) {
+        // Si no se pueden calcular, no animar
+        return;
+      }
+    }
     setIsPlaying(true);
-    console.log("Iniciando secuencia", isMobile ? "móvil" : "desktop");
-    console.log("Usando posiciones:", positionsRef.current);
-
     if (isMobile) {
       startMobileSequence();
     } else {
@@ -343,7 +181,6 @@ const NoahPlatformer = () => {
     setShowEnemy(true);
 
     setTimeout(() => {
-      console.log("Fase móvil: falling-mobile - Caer del header");
       setCurrentPhase("falling-mobile");
     }, 1000);
 
@@ -397,7 +234,6 @@ const NoahPlatformer = () => {
     setShowEnemy(true);
 
     setTimeout(() => {
-      console.log("Fase: falling - Saltar hacia abajo");
       setCurrentPhase("falling");
     }, 1500);
 

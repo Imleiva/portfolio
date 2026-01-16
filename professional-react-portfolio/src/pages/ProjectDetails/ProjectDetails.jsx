@@ -98,10 +98,10 @@ const ProjectDetails = () => {
         t("portfolio.project1.feature3", "Perfiles de usuario personalizables"),
         t("portfolio.project1.feature4", "Sistema de recomendaciones"),
       ],
-      demoLink: "#",
-      codeLink: "#", // Enlace al código en GitHub
-      status: t("portfolio.status.completed", "Completado"),
-      hasDemoAvailable: false, // Cuando esté ok, cambiar a true
+      demoLink: "https://imleiva.github.io/mommatch_demo/",
+      codeLink: "https://github.com/Imleiva/mommatch_demo",
+      status: t("portfolio.status.development", "En desarrollo"),
+      hasDemoAvailable: true,
     },
     "leiva-roll": {
       title: t("portfolio.project2.title"),
