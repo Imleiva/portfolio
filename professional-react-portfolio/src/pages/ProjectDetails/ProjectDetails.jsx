@@ -162,7 +162,7 @@ const ProjectDetails = () => {
       demoLink: "#", // Aquí se pondrá el enlace de descarga o demo
       codeLink: "#", // Repositorio del código del juego
       status: t("portfolio.status.development", "En desarrollo"),
-      hasDemoAvailable: false, // Cambiar cuando la demo esté lista
+      hasDemoAvailable: true, // Cambiar cuando la demo esté lista
     },
   };
 
