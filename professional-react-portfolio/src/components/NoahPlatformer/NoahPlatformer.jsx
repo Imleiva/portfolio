@@ -53,6 +53,12 @@ const NoahPlatformer = () => {
       document.body.style.width = "100%";
       document.body.style.paddingRight = `${scrollbarWidth}px`;
 
+      // Compensar también el header fijo para que no se desplace
+      const header = document.querySelector(".header");
+      if (header) {
+        header.style.paddingRight = `${scrollbarWidth}px`;
+      }
+
       return () => {
         // Remover estilos
         document.body.style.overflow = "";
@@ -60,6 +66,10 @@ const NoahPlatformer = () => {
         document.body.style.top = "";
         document.body.style.width = "";
         document.body.style.paddingRight = "";
+
+        if (header) {
+          header.style.paddingRight = "";
+        }
 
         // Restaurar scroll instantáneamente sin animación
         window.scrollTo({
