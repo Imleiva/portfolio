@@ -58,6 +58,13 @@
             "A partir de ahora voy a usarlo cada vez que programe. Es divertido, completamente inútil y totalmente gratis. Pero sobre todo, es una forma de recordar que incluso el trabajo más rutinario puede convertirse en algo hermoso si lo miras desde otro ángulo."
           ],
           "tags": ["Herramientas", "Arte", "Proceso creativo"],
+          "images": [
+            {
+              "src": "iographica-session",
+              "alt": "Sesión de IOGraphica - 2.6 horas programando",
+              "caption": "2.6 horas de sesión programando. Los círculos grandes son pausas para pensar, las líneas son el caos entre archivos."
+            }
+          ],
           "link": {
             "url": "https://iographica.com/",
             "text": "Visitar IOGraph"

@@ -1,5 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import iographicaSession from "../../../assets/images/blog/iographica-session.png";
+
+const blogImages = {
+  "iographica-session": iographicaSession,
+};
 
 const CodeAsArt = () => {
   const { t } = useTranslation();
@@ -50,7 +55,7 @@ const CodeAsArt = () => {
                         }}
                       >
                         <img
-                          src={image.src}
+                          src={blogImages[image.src] || image.src}
                           alt={image.alt}
                           style={{
                             width: "100%",

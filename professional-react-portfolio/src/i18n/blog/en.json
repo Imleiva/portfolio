@@ -58,6 +58,13 @@
             "From now on I'm going to use it every time I code. It's fun, completely useless and totally free. But above all, it's a way to remember that even the most routine work can become something beautiful if you look at it from another angle."
           ],
           "tags": ["Tools", "Art", "Creative process"],
+          "images": [
+            {
+              "src": "iographica-session",
+              "alt": "IOGraphica session - 2.6 hours coding",
+              "caption": "2.6 hours coding session. Big circles are pauses to think, lines are the chaos between files."
+            }
+          ],
           "link": {
             "url": "https://iographica.com/",
             "text": "Visit IOGraph"
