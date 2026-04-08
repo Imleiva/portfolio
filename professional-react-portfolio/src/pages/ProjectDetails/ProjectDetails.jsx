@@ -20,12 +20,18 @@ import desktop5 from "../../assets/images/screenshots/leivanrock/desktop5.png";
 import mobile1 from "../../assets/images/screenshots/leivanrock/mobile1.png";
 import mobile2 from "../../assets/images/screenshots/leivanrock/mobile2.png";
 
+// Importamos las capturas de pantalla de Noahverso
+import noahversoScreenshot1 from "../../assets/images/screenshots/noahverso/noahverso1.png";
+import noahversoScreenshot2 from "../../assets/images/screenshots/noahverso/noahverso2.png";
+import noahversoDemoVideo from "../../assets/images/screenshots/noahverso/demo.mp4";
+
 const ProjectDetails = () => {
   const { slug } = useParams();
   const { t } = useTranslation();
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [showVideoModal, setShowVideoModal] = useState(false);
   const carouselRef = useRef(null);
   useScrollToTop(); // Lleva automáticamente al usuario al inicio de la página
 
@@ -39,6 +45,8 @@ const ProjectDetails = () => {
     mobile2,
   ];
 
+  const noahversoScreenshots = [noahversoScreenshot1, noahversoScreenshot2];
+
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -51,26 +59,26 @@ const ProjectDetails = () => {
     if (touchStart - touchEnd > 75) {
       // Deslizar a la izquierda - siguiente imagen
       setCurrentScreenshot((prev) =>
-        prev === screenshots.length - 1 ? 0 : prev + 1
+        prev === screenshots.length - 1 ? 0 : prev + 1,
       );
     }
     if (touchStart - touchEnd < -75) {
       // Deslizar a la derecha - imagen anterior
       setCurrentScreenshot((prev) =>
-        prev === 0 ? screenshots.length - 1 : prev - 1
+        prev === 0 ? screenshots.length - 1 : prev - 1,
       );
     }
   };
 
   const goToPrevious = () => {
     setCurrentScreenshot((prev) =>
-      prev === 0 ? screenshots.length - 1 : prev - 1
+      prev === 0 ? screenshots.length - 1 : prev - 1,
     );
   };
 
   const goToNext = () => {
     setCurrentScreenshot((prev) =>
-      prev === screenshots.length - 1 ? 0 : prev + 1
+      prev === screenshots.length - 1 ? 0 : prev + 1,
     );
   };
 
@@ -81,7 +89,7 @@ const ProjectDetails = () => {
       description: t("portfolio.project1.description"),
       longDescription: t(
         "portfolio.project1.longDescription",
-        "Aplicación web full-stack para conectar madres y facilitar el intercambio de experiencias. Incluye sistema de registro, perfiles de usuario, chat en tiempo real y sistema de recomendaciones."
+        "Aplicación web full-stack para conectar madres y facilitar el intercambio de experiencias. Incluye sistema de registro, perfiles de usuario, chat en tiempo real y sistema de recomendaciones.",
       ),
       image: momMatchLogo,
       technologies: [
@@ -108,7 +116,7 @@ const ProjectDetails = () => {
       description: t("portfolio.project2.description"),
       longDescription: t(
         "portfolio.project2.longDescription",
-        "Museo digital interactivo que celebra la historia de la música a través de una colección curada de más de 500 reseñas musicales del reconocido crítico Maese Leiva. Ofrece una experiencia inmersiva con un diseño visual atractivo, un sistema de búsqueda avanzada, filtros dinámicos por género, año y artista, y un reproductor de música integrado que permite explorar canciones destacadas. Además, incluye secciones interactivas como galerías de pósters de conciertos, avatares personalizados y datos curiosos sobre bandas y artistas."
+        "Museo digital interactivo que celebra la historia de la música a través de una colección curada de más de 500 reseñas musicales del reconocido crítico Maese Leiva. Ofrece una experiencia inmersiva con un diseño visual atractivo, un sistema de búsqueda avanzada, filtros dinámicos por género, año y artista, y un reproductor de música integrado que permite explorar canciones destacadas. Además, incluye secciones interactivas como galerías de pósters de conciertos, avatares personalizados y datos curiosos sobre bandas y artistas.",
       ),
       image: logoLRHF,
       technologies: [
@@ -122,21 +130,21 @@ const ProjectDetails = () => {
       features: [
         t(
           "portfolio.project2.feature1",
-          "Búsqueda avanzada y filtros dinámicos"
+          "Búsqueda avanzada y filtros dinámicos",
         ),
         t(
           "portfolio.project2.feature2",
-          "Galerías interactivas de pósters y avatares"
+          "Galerías interactivas de pósters y avatares",
         ),
         t("portfolio.project2.feature3", "Reproductor de música integrado"),
         t("portfolio.project2.feature4", "Datos curiosos y trivia musical"),
         t(
           "portfolio.project2.feature5",
-          "Interfaz responsive y optimizada para dispositivos móviles"
+          "Interfaz responsive y optimizada para dispositivos móviles",
         ),
         t(
           "portfolio.project2.feature6",
-          "Integración con APIs de música y datos culturales"
+          "Integración con APIs de música y datos culturales",
         ),
       ],
       demoLink: "https://imleiva.github.io/musicmuseum/", // Enlace a la demo
@@ -149,7 +157,7 @@ const ProjectDetails = () => {
       description: t("portfolio.project3.description"),
       longDescription: t(
         "portfolio.project3.longDescription",
-        "Juego narrativo interactivo desarrollado en Unity que transforma recuerdos de la infancia en aventuras jugables. Incluye múltiples finales, sistema de decisiones y gráficos 2D artesanales."
+        "Juego narrativo interactivo desarrollado en Unity que transforma recuerdos de la infancia en aventuras jugables. Incluye múltiples finales, sistema de decisiones y gráficos 2D artesanales.",
       ),
       image: noahVersoLogo,
       technologies: ["Unity", "C#", "Game Development", "2D Graphics"],
@@ -159,10 +167,12 @@ const ProjectDetails = () => {
         t("portfolio.project3.feature3", "Sistema de decisiones"),
         t("portfolio.project3.feature4", "Arte 2D original"),
       ],
-      demoLink: "#", // Aquí se pondrá el enlace de descarga o demo
-      codeLink: "#", // Repositorio del código del juego
+      demoLink: "#",
+      codeLink: "#",
       status: t("portfolio.status.development", "En desarrollo"),
-      hasDemoAvailable: true, // Cambiar cuando la demo esté lista
+      hasDemoAvailable: true,
+      hasVideo: true,
+      videoPath: noahversoDemoVideo,
     },
   };
 
@@ -211,14 +221,23 @@ const ProjectDetails = () => {
 
             <div className="project-actions">
               {project.hasDemoAvailable ? (
-                <a
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                >
-                  🚀 {t("portfolio.viewDemo", "Ver Demo")}
-                </a>
+                project.hasVideo ? (
+                  <button
+                    onClick={() => setShowVideoModal(true)}
+                    className="btn btn-primary"
+                  >
+                    🚀 {t("portfolio.viewDemo", "Ver Demo")}
+                  </button>
+                ) : (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    🚀 {t("portfolio.viewDemo", "Ver Demo")}
+                  </a>
+                )
               ) : (
                 <Link
                   to={`/coming-soon/${encodeURIComponent(project.title)}`}
@@ -285,7 +304,7 @@ const ProjectDetails = () => {
         transition={{ delay: 0.4, duration: 0.5 }}
       >
         <h2>{t("portfolio.screenshots", "Capturas de pantalla")}</h2>
-        {slug === "leiva-roll" ? (
+        {slug === "leiva-roll" || slug === "noahverso" ? (
           <div className="carousel-container">
             <div
               className="carousel"
@@ -295,20 +314,24 @@ const ProjectDetails = () => {
               onTouchEnd={handleTouchEnd}
             >
               <div className="carousel-device-indicator">
-                {currentScreenshot >= 5 ? (
+                {slug === "leiva-roll" && currentScreenshot >= 5 ? (
                   <Smartphone size={16} />
-                ) : (
+                ) : slug === "leiva-roll" ? (
                   <Monitor size={16} />
-                )}
+                ) : null}
               </div>
               <div className="carousel-image-wrapper">
                 <img
-                  src={screenshots[currentScreenshot]}
-                  alt={`Leiva'n Roll Hall of Fame - Screenshot ${
-                    currentScreenshot + 1
-                  }`}
+                  src={
+                    slug === "leiva-roll"
+                      ? screenshots[currentScreenshot]
+                      : noahversoScreenshots[currentScreenshot]
+                  }
+                  alt={`${project.title} - Screenshot ${currentScreenshot + 1}`}
                   className={`carousel-image ${
-                    currentScreenshot >= 5 ? "mobile-screenshot" : ""
+                    slug === "leiva-roll" && currentScreenshot >= 5
+                      ? "mobile-screenshot"
+                      : ""
                   }`}
                   draggable="false"
                 />
@@ -325,7 +348,10 @@ const ProjectDetails = () => {
               </button>
 
               <div className="carousel-indicators">
-                {screenshots.map((_, index) => (
+                {(slug === "leiva-roll"
+                  ? screenshots
+                  : noahversoScreenshots
+                ).map((_, index) => (
                   <button
                     key={index}
                     className={`carousel-indicator ${
@@ -347,7 +373,10 @@ const ProjectDetails = () => {
             </div>
 
             <div className="carousel-counter">
-              {currentScreenshot + 1} / {screenshots.length}
+              {currentScreenshot + 1} /{" "}
+              {slug === "leiva-roll"
+                ? screenshots.length
+                : noahversoScreenshots.length}
             </div>
           </div>
         ) : (
@@ -355,12 +384,41 @@ const ProjectDetails = () => {
             <p>
               {t(
                 "portfolio.screenshotsComingSoon",
-                "Capturas de pantalla próximamente..."
+                "Capturas de pantalla próximamente...",
               )}
             </p>
           </div>
         )}
       </motion.section>
+
+      {/* Modal de Video */}
+      {showVideoModal && (
+        <div
+          className="video-modal-overlay"
+          onClick={() => setShowVideoModal(false)}
+        >
+          <div
+            className="video-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="video-modal-close"
+              onClick={() => setShowVideoModal(false)}
+              aria-label="Cerrar video"
+            >
+              ✕
+            </button>
+            <video
+              className="video-modal-video"
+              controls
+              autoPlay
+              src={project.videoPath}
+            >
+              Tu navegador no soporta reproducción de video.
+            </video>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };
