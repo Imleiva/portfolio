@@ -20,19 +20,25 @@
       "title": "Debug Personal",
       "entries": [
         {
-          "date": "4 Dic 2024",
+          "date": "1 Abr 2026",
+          "title": "Unity sin tutorial: speedrun al caos",
+          "text": "Abrí Unity por primera vez sin ver ni un solo tutorial. Mi lógica: si sé programar, qué tan difícil puede ser? Veinte minutos después tenía un cubo que caía infinitamente al vacío, una cámara apuntando a la nada y un script que compilaba pero no hacía absolutamente nada. Cada vez que intentaba arreglar algo, rompía otra cosa. Es como hacer CSS en 3D. Pero lo curioso es que en un par de horas ya tenía algo que se parecía a un juego. Resulta que intuir cómo funciona algo a base de tocarlo todo es un método de aprendizaje válido. Caótico, pero válido.",
+          "tags": ["Unity", "Gamedev", "Sin tutorial"]
+        },
+        {
+          "date": "15 Dic 2025",
           "title": "El misterio del z-index perdido",
           "text": "Bug del día: me pasé 2h buscando un div que estaba oculto tras un z-index. Resulta que el problema no era el z-index... era que el elemento tenía `display: none`. A veces las respuestas más obvias son las más difíciles de ver.",
           "tags": ["CSS", "Debug", "Lección aprendida"]
         },
         {
-          "date": "3 Dic 2024",
+          "date": "3 Dic 2025",
           "title": "Patch note emocional",
           "text": "Patch note emocional: hoy subo +2 en paciencia después de descubrir que el bug era un espacio extra en una clase CSS. Un. Espacio. Extra. Respirar profundo ayuda.",
           "tags": ["Paciencia", "CSS", "Vida dev"]
         },
         {
-          "date": "2 Dic 2024",
+          "date": "22 Nov 2025",
           "title": "El console.log que olvidé borrar",
           "text": "Subí a producción con 37 console.log() activos. El sitio funcionaba perfecto pero mi console parecía un chat de WhatsApp a las 3am. Recordatorio: revisar antes de hacer push.",
           "tags": ["JavaScript", "Oops", "Producción"]
@@ -44,7 +50,7 @@
       "title": "Código como Arte",
       "entries": [
         {
-          "date": "10 Dic 2024",
+          "date": "30 Ene 2026",
           "title": "IOGraph: Convirtiendo código en arte visual",
           "content": [
             "Acabo de descubrir IOGraph y me tiene fascinada. Es una aplicación que convierte tus movimientos del mouse en arte contemporáneo mientras trabajas. La idea es simple: dejas el programa corriendo en segundo plano mientras programas, y después de un rato vuelves y tienes una imagen preciosa de todo lo que has estado haciendo.",
@@ -58,7 +64,7 @@
           }
         },
         {
-          "date": "4 Dic 2024",
+          "date": "15 Dic 2025",
           "title": "La recursión como danza",
           "code": "function fibonacci(n) {\n  if (n <= 1) return n;\n  return fibonacci(n - 1) + fibonacci(n - 2);\n}",
           "palette": [
@@ -86,13 +92,13 @@
           "tags": ["Bizarro", "Creatividad", "Romper reglas"]
         },
         {
-          "date": "5 Dic 2024",
+          "date": "28 Dic 2025",
           "title": "Cartas de Alejandra Pizarnik",
           "review": "Ayer terminé de leer las cartas de Pizarnik... su creatividad era exquisita, belleza en su rareza. Cambiaba entre filosofía, letras y periodismo porque no encajaba en ningún molde. Escribía con una precisión obsesiva pero también con una libertad que rompía todo lo establecido. Leía a Artaud, Rimbaud, Baudelaire... se construyó a sí misma desde la literatura, cambiando hasta su propio nombre. Era rebelde, estrafalaria, subversiva frente a lo que se esperaba de ella. Sus cartas son ese diálogo constante consigo misma, con todas las que era... como si estuviera programando su propia identidad, iterando hasta encontrar una versión que pudiera habitar. Esa búsqueda infinita de lo perdido, esa tensión entre la precisión racional y el automatismo surrealista... es lo que siento cuando creo: buscando algo que no sé si existe pero que necesito encontrar.",
           "tags": ["Poesía", "Identidad", "Creatividad"]
         },
         {
-          "date": "15 Nov 2024",
+          "date": "18 Oct 2025",
           "title": "Cuentos de Edgar Allan Poe",
           "review": "Poe construía atmósferas perfectas con palabras precisas. Cada frase te lleva un paso más adentro. Leo sus cuentos y pienso en arquitectura de código: cómo cada función lleva a la siguiente, cómo construyes suspense (o en nuestro caso, flujo) hasta que todo converge en un punto. 'El corazón delator' es como un bug que no puedes ignorar... está ahí, latiendo, recordándote que algo no está bien hasta que lo arreglas.",
           "tags": ["Literatura", "Estructura", "Narrativa"]
@@ -104,19 +110,19 @@
       "title": "Patrones Psicológicos en el Código",
       "entries": [
         {
-          "date": "4 Dic 2024",
+          "date": "15 Dic 2025",
           "title": "La ansiedad diseña interfaces defensivas",
           "text": "He notado que cuando estoy ansiosa, diseño interfaces con demasiadas advertencias, demasiados mensajes de confirmación, demasiadas validaciones. Es como si proyectara mi necesidad de control en cada formulario. Curioso cómo nuestro estado emocional se cuela en cada decisión de diseño.",
           "tags": ["UX", "Psicología", "Ansiedad"]
         },
         {
-          "date": "2 Dic 2024",
+          "date": "22 Nov 2025",
           "title": "El sesgo de confirmación en el debugging",
           "text": "Cuando estoy convencida de que el bug está en el backend, solo busco evidencia de que está en el backend. Ignoro completamente que podría ser el CSS. El sesgo de confirmación en programación es real: buscamos lo que queremos encontrar, no lo que realmente está roto.",
           "tags": ["Debug", "Sesgos cognitivos"]
         },
         {
-          "date": "30 Nov 2024",
+          "date": "5 Nov 2025",
           "title": "La tolerancia a la frustración y el arte del debug",
           "text": "He aprendido que el debugging no es solo encontrar errores, es entrenar la tolerancia a la frustración. Cada bug que resuelvo es una pequeña victoria contra mi impulso de rendirme. Es terapéutico de una forma extraña.",
           "tags": ["Debug", "Resiliencia", "Crecimiento"]
@@ -128,7 +134,7 @@
       "title": "Antes / Después",
       "entries": [
         {
-          "date": "5 Dic 2024",
+          "date": "28 Dic 2025",
           "title": "Museo Virtual Leiva'n Roll: Cuando una idea simple se transforma",
           "before": {
             "description": "La idea original: un museo virtual sencillo. Limpio. Solo mostrar artistas y canciones del proyecto Leiva'n Roll. Nada más."
@@ -152,7 +158,7 @@
       "title": "Mi Yo del Pasado Me Odiaría Por Esto",
       "entries": [
         {
-          "date": "4 Dic 2024",
+          "date": "15 Dic 2025",
           "title": "Cuando pensaba que los IDs numéricos eran suficientes",
           "text": "Mi yo de hace 2 años: 'Para qué voy a usar UUIDs si puedo usar 1, 2, 3...'. Mi yo actual después de tener colisiones en producción: 'Necesito terapia por esto'. Ahora uso UUIDs para todo y duermo tranquila. Lección: la escalabilidad no es opcional, es inevitable.",
           "beforeThought": "Los IDs numéricos son simples y funcionan perfectamente.",
@@ -160,7 +166,7 @@
           "tags": ["Base de datos", "Errores del pasado"]
         },
         {
-          "date": "2 Dic 2024",
+          "date": "22 Nov 2025",
           "title": "Mi guerra contra las variables descriptivas",
           "text": "Solía nombrar variables así: x, y, data, tmp, arr. Pensaba que era 'eficiente'. Ahora cuando tengo que revisar ese código antiguo quiero viajar en el tiempo y darme una charla sobre clean code. ¿Qué hace 'tmp'? ¿Por qué 'x' tiene 200 líneas de vida? Nadie lo sabe.",
           "beforeThought": "Nombres cortos = código rápido de escribir = más productividad.",
@@ -168,7 +174,7 @@
           "tags": ["Clean Code", "Variables", "Naming"]
         },
         {
-          "date": "30 Nov 2024",
+          "date": "5 Nov 2025",
           "title": "Cuando creía que los comentarios eran para débiles",
           "text": "Plot twist: los comentarios no son para débiles, son para humanos. Mi yo del pasado escribía código 'autoexplicativo' que nadie entendía. Mi yo actual escribe comentarios que explican el POR QUÉ, no el QUÉ. El código dice qué hace, los comentarios dicen por qué existe.",
           "beforeThought": "El código debe ser autoexplicativo, los comentarios sobran.",
@@ -228,7 +234,7 @@
       "title": "Ideas en Proceso",
       "entries": [
         {
-          "date": "8 Dic 2024",
+          "date": "12 Ene 2026",
           "title": "🎲 La Oca Personalizada",
           "content": [
             "Jugando con mi hijo a la oca me di cuenta de algo: él tiene sus propias coletillas para todo. Cuando saca un 6 grita '¡6!! Tiro de nuevo porque me tocó 6...'. Cuando cae en un puente dice su versión de la regla. Son esas pequeñas cosas que hacen que cada partida sea única.",
@@ -245,7 +251,7 @@
       "title": "Sorpresas Escondidas",
       "entries": [
         {
-          "date": "5 Dic 2024",
+          "date": "28 Dic 2025",
           "title": "Noah: El Easter Egg Platformer",
           "content": [
             "Me encanta esconder pequeñas sorpresas en los sitios que creo... Es como dejar migas de pan para quien tenga curiosidad de explorar. Por eso añadí un easter egg donde Noah (mi personaje pixel art) cobra vida y salta entre los proyectos como si fueran plataformas.",
@@ -256,7 +262,7 @@
           "tags": ["Easter Egg", "CSS Animation", "Pixel Art", "UX Design"]
         },
         {
-          "date": "5 Dic 2024",
+          "date": "28 Dic 2025",
           "title": "Detalles que hacen la diferencia",
           "content": [
             "Los easter eggs no son solo 'extras divertidos'. Son una forma de conectar con quien visita tu trabajo. Cuando alguien descubre algo escondido, se siente parte de un secreto compartido. Es como un guiño cómplice entre quien crea y quien explora."

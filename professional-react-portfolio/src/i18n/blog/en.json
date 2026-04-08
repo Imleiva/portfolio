@@ -20,19 +20,25 @@
       "title": "Personal Debug",
       "entries": [
         {
-          "date": "Dec 4, 2024",
+          "date": "Apr 1, 2026",
+          "title": "Unity with no tutorial: speedrun to chaos",
+          "text": "Opened Unity for the first time without watching a single tutorial. My logic: 'if I can code, how hard can it be?'. Twenty minutes later I had a cube falling infinitely into the void, a camera pointing at nothing, and a script that compiled but did absolutely nothing. Every time I tried to fix something, I broke something else. It's like doing CSS in 3D. But the funny thing is, a couple of hours in I already had something that looked like a game. Turns out figuring out how things work by poking at everything is a valid learning method. Chaotic, but valid.",
+          "tags": ["Unity", "Gamedev", "No tutorial"]
+        },
+        {
+          "date": "Dec 15, 2025",
           "title": "The mystery of the missing z-index",
           "text": "Bug of the day: I spent 2 hours looking for a div hidden behind a z-index. Turns out the problem wasn't the z-index... it had `display: none`. Sometimes the most obvious answers are the hardest to see.",
           "tags": ["CSS", "Debug", "Lesson learned"]
         },
         {
-          "date": "Dec 3, 2024",
+          "date": "Dec 3, 2025",
           "title": "Emotional patch note",
           "text": "Emotional patch note: today I gained +2 patience after discovering the bug was an extra space in a CSS class. One. Extra. Space. Deep breathing helps.",
           "tags": ["Patience", "CSS", "Dev life"]
         },
         {
-          "date": "Dec 2, 2024",
+          "date": "Nov 22, 2025",
           "title": "The console.log I forgot to delete",
           "text": "Pushed to production with 37 active console.log(). The site worked perfectly but my console looked like a WhatsApp chat at 3am. Reminder: review before pushing.",
           "tags": ["JavaScript", "Oops", "Production"]
@@ -44,7 +50,7 @@
       "title": "Code as Art",
       "entries": [
         {
-          "date": "Dec 10, 2024",
+          "date": "Jan 30, 2026",
           "title": "IOGraph: Turning code into visual art",
           "content": [
             "I just discovered IOGraph and I'm fascinated. It's an application that turns your mouse movements into contemporary art while you work. The idea is simple: you leave the program running in the background while coding, and after a while you come back and have a beautiful image of everything you've been doing.",
@@ -58,7 +64,7 @@
           }
         },
         {
-          "date": "Dec 4, 2024",
+          "date": "Dec 15, 2025",
           "title": "Recursion as dance",
           "code": "function fibonacci(n) {\n  if (n <= 1) return n;\n  return fibonacci(n - 1) + fibonacci(n - 2);\n}",
           "palette": [
@@ -86,13 +92,13 @@
           "tags": ["Bizarro", "Creativity", "Breaking rules"]
         },
         {
-          "date": "Dec 5, 2024",
+          "date": "Dec 28, 2025",
           "title": "Letters from Alejandra Pizarnik",
           "review": "Yesterday I finished reading Pizarnik's letters... her creativity was exquisite, beauty in her oddness. She switched between philosophy, literature and journalism because she didn't fit any mold. She wrote with obsessive precision but also with a freedom that broke everything established. She read Artaud, Rimbaud, Baudelaire... she built herself from literature, even changing her own name. She was rebellious, eccentric, subversive against what was expected of her. Her letters are that constant dialogue with herself, with all that she was... as if she were programming her own identity, iterating until finding a version she could inhabit. That infinite search for the lost, that tension between rational precision and surrealist automatism... is what I feel when I create: searching for something I don't know if it exists but I need to find.",
           "tags": ["Poetry", "Identity", "Creativity"]
         },
         {
-          "date": "Nov 15, 2024",
+          "date": "Oct 18, 2025",
           "title": "Tales of Edgar Allan Poe",
           "review": "Poe built perfect atmospheres with precise words. Each sentence takes you one step deeper. I read his stories and think about code architecture: how each function leads to the next, how you build suspense (or in our case, flow) until everything converges at one point. 'The Tell-Tale Heart' is like a bug you can't ignore... it's there, beating, reminding you something isn't right until you fix it.",
           "tags": ["Literature", "Structure", "Narrative"]
@@ -104,19 +110,19 @@
       "title": "Psychological Patterns in Code",
       "entries": [
         {
-          "date": "Dec 4, 2024",
+          "date": "Dec 15, 2025",
           "title": "Anxiety designs defensive interfaces",
           "text": "I've noticed that when I'm anxious, I design interfaces with too many warnings, too many confirmation messages, too many validations. It's as if I project my need for control into every form. Curious how our emotional state sneaks into every design decision.",
           "tags": ["UX", "Psychology", "Anxiety"]
         },
         {
-          "date": "Dec 2, 2024",
+          "date": "Nov 22, 2025",
           "title": "Confirmation bias in debugging",
           "text": "When I'm convinced the bug is in the backend, I only look for evidence that it's in the backend. I completely ignore that it could be the CSS. Confirmation bias in programming is real: we look for what we want to find, not what's actually broken.",
           "tags": ["Debug", "Cognitive biases"]
         },
         {
-          "date": "Nov 30, 2024",
+          "date": "Nov 5, 2025",
           "title": "Frustration tolerance and the art of debugging",
           "text": "I've learned that debugging isn't just finding errors, it's training frustration tolerance. Each bug I solve is a small victory against my impulse to give up. It's therapeutic in a strange way.",
           "tags": ["Debug", "Resilience", "Growth"]
@@ -128,7 +134,7 @@
       "title": "Before / After",
       "entries": [
         {
-          "date": "Dec 5, 2024",
+          "date": "Dec 28, 2025",
           "title": "Leiva'n Roll Virtual Museum: When a simple idea transforms",
           "before": {
             "description": "The original idea: a simple virtual museum. Clean. Just show artists and songs from the Leiva'n Roll project. Nothing more."
@@ -152,7 +158,7 @@
       "title": "My Past Self Would Hate This",
       "entries": [
         {
-          "date": "Dec 4, 2024",
+          "date": "Dec 15, 2025",
           "title": "When I thought numeric IDs were enough",
           "text": "My 2-years-ago self: 'Why would I use UUIDs if I can use 1, 2, 3...'. My current self after having collisions in production: 'I need therapy for this'. Now I use UUIDs for everything and sleep peacefully. Lesson: scalability isn't optional, it's inevitable.",
           "beforeThought": "Numeric IDs are simple and work perfectly.",
@@ -160,7 +166,7 @@
           "tags": ["Database", "Past mistakes"]
         },
         {
-          "date": "Dec 2, 2024",
+          "date": "Nov 22, 2025",
           "title": "My war against descriptive variables",
           "text": "I used to name variables like this: x, y, data, tmp, arr. I thought it was 'efficient'. Now when I have to review that old code I want to time travel and give myself a talk about clean code. What does 'tmp' do? Why does 'x' have 200 lines of life? Nobody knows.",
           "beforeThought": "Short names = fast code writing = more productivity.",
@@ -168,7 +174,7 @@
           "tags": ["Clean Code", "Variables", "Naming"]
         },
         {
-          "date": "Nov 30, 2024",
+          "date": "Nov 5, 2025",
           "title": "When I believed comments were for the weak",
           "text": "Plot twist: comments aren't for the weak, they're for humans. My past self wrote 'self-explanatory' code that nobody understood. My current self writes comments that explain the WHY, not the WHAT. Code says what it does, comments say why it exists.",
           "beforeThought": "Code should be self-explanatory, comments are unnecessary.",
@@ -228,7 +234,7 @@
       "title": "Ideas in Progress",
       "entries": [
         {
-          "date": "Dec 8, 2024",
+          "date": "Jan 12, 2026",
           "title": "🎲 The Custom Goose Game",
           "content": [
             "Playing the goose game with my son I realized something: he has his own catchphrases for everything. When he rolls a 6 he shouts '6!! I roll again because I got 6...'. When he lands on a bridge he says his version of the rule. These little things make each game unique.",
@@ -245,7 +251,7 @@
       "title": "Hidden Surprises",
       "entries": [
         {
-          "date": "Dec 5, 2024",
+          "date": "Dec 28, 2025",
           "title": "Noah: The Easter Egg Platformer",
           "content": [
             "I love hiding little surprises in the sites I create... It's like leaving breadcrumbs for those curious enough to explore. That's why I added an easter egg where Noah (my pixel art character) comes to life and jumps between projects as if they were platforms.",
@@ -256,7 +262,7 @@
           "tags": ["Easter Egg", "CSS Animation", "Pixel Art", "UX Design"]
         },
         {
-          "date": "Dec 5, 2024",
+          "date": "Dec 28, 2025",
           "title": "Details that make a difference",
           "content": [
             "Easter eggs aren't just 'fun extras'. They're a way to connect with whoever visits your work. When someone discovers something hidden, they feel part of a shared secret. It's like a complicit wink between creator and explorer."
