@@ -80,6 +80,12 @@
       "title": "Book Reviews",
       "entries": [
         {
+          "date": "Mar 14, 2026",
+          "title": "Welcome to Bizarro",
+          "review": "This book is weird. Really weird. And that's exactly the point. The Bizarro genre takes narrative rules, stares at them, and throws them out the window. The absurd, the grotesque, things that shouldn't make sense... suddenly do. It reminded me of those moments when you're building something and the 'correct' approach just doesn't work. When the docs say one thing, logic says another, and the only thing that solves the problem is what nobody would do. Bizarro is that: what nobody would do, done with full conviction. It left me wanting to create things without first asking myself if they make sense. Sometimes what doesn't fit anywhere ends up being the most interesting thing.",
+          "tags": ["Bizarro", "Creativity", "Breaking rules"]
+        },
+        {
           "date": "Dec 5, 2024",
           "title": "Letters from Alejandra Pizarnik",
           "review": "Yesterday I finished reading Pizarnik's letters... her creativity was exquisite, beauty in her oddness. She switched between philosophy, literature and journalism because she didn't fit any mold. She wrote with obsessive precision but also with a freedom that broke everything established. She read Artaud, Rimbaud, Baudelaire... she built herself from literature, even changing her own name. She was rebellious, eccentric, subversive against what was expected of her. Her letters are that constant dialogue with herself, with all that she was... as if she were programming her own identity, iterating until finding a version she could inhabit. That infinite search for the lost, that tension between rational precision and surrealist automatism... is what I feel when I create: searching for something I don't know if it exists but I need to find.",

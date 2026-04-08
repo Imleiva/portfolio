@@ -41,11 +41,6 @@ const BeforeAfter = () => {
             <div className="before-after-container">
               <div className="before-after-item before">
                 <div className="before-after-label">❌ Antes</div>
-                <div className="before-after-image">
-                  <span className="before-after-image-placeholder">
-                    📸 Captura pendiente
-                  </span>
-                </div>
                 <p className="before-after-description">
                   {project.before.description}
                 </p>
@@ -53,11 +48,6 @@ const BeforeAfter = () => {
 
               <div className="before-after-item after">
                 <div className="before-after-label">✅ Después</div>
-                <div className="before-after-image">
-                  <span className="before-after-image-placeholder">
-                    📸 Captura pendiente
-                  </span>
-                </div>
                 <p className="before-after-description">
                   {project.after.description}
                 </p>
