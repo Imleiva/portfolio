@@ -8,9 +8,9 @@
   pointer-events: none;
   background-repeat: no-repeat;
   image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-optimize-contrast; /* Edge support */
+  image-rendering: -webkit-optimize-contrast;
   image-rendering: pixelated;
-  image-rendering: crisp-edges; /* webkit-optimize-contrast already included for Edge */
+  image-rendering: crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
@@ -127,7 +127,8 @@
 .noah-sprite-appearing {
   bottom: 610px;
   background-size: 256px 64px; /* 4 frames de walking */
-  animation: noahAppearPosition 1.5s ease-in-out forwards,
+  animation:
+    noahAppearPosition 1.5s ease-in-out forwards,
     noahWalkFrames 0.6s steps(4) infinite;
   animation-fill-mode: both;
 }
@@ -144,7 +145,9 @@
 /* Fase 1: Saltar hacia abajo */
 .noah-sprite-falling {
   background-size: 320px 64px; /* 5 frames de jump */
-  animation: noahFallPosition 1s ease-in-out both, noahJumpFrames 1s steps(5) 1;
+  animation:
+    noahFallPosition 1s ease-in-out both,
+    noahJumpFrames 1s steps(5) 1;
   animation-fill-mode: both;
 }
 
@@ -187,7 +190,8 @@
 .noah-sprite-walking1 {
   bottom: 96px;
   background-size: 256px 64px; /* 4 frames de 64px */
-  animation: noahWalk1Position 1.7s linear forwards,
+  animation:
+    noahWalk1Position 1.7s linear forwards,
     noahWalkFrames 0.6s steps(4) infinite;
   animation-fill-mode: both;
 }
@@ -205,7 +209,8 @@
 .noah-sprite-running1 {
   bottom: 96px;
   background-size: 256px 64px; /* 4 frames de 64px */
-  animation: noahRun1Position 1.8s linear forwards,
+  animation:
+    noahRun1Position 1.8s linear forwards,
     noahRunFrames 0.4s steps(4) infinite;
   animation-fill-mode: both;
 }
@@ -222,7 +227,8 @@
 /* Fase 4: Saltar al Museo (botón central) */
 .noah-sprite-jump1 {
   background-size: 320px 64px; /* 5 frames de jumping */
-  animation: noahJump1Position 0.65s ease-out forwards,
+  animation:
+    noahJump1Position 0.65s ease-out forwards,
     noahJumpFrames 0.65s steps(5) 1;
   animation-fill-mode: both;
 }
@@ -246,7 +252,8 @@
 .noah-sprite-walking2 {
   bottom: 96px;
   background-size: 256px 64px; /* 4 frames de 64px */
-  animation: noahWalk2Position 1.5s linear forwards,
+  animation:
+    noahWalk2Position 1.5s linear forwards,
     noahWalkFrames 0.6s steps(4) infinite;
   animation-fill-mode: both;
 }
@@ -264,7 +271,8 @@
 .noah-sprite-running2 {
   bottom: 96px;
   background-size: 256px 64px; /* 4 frames de 64px */
-  animation: noahRun2Position 1s linear forwards,
+  animation:
+    noahRun2Position 1s linear forwards,
     noahRunFrames 0.4s steps(4) infinite;
   animation-fill-mode: both;
 }
@@ -281,7 +289,8 @@
 /* Fase 7: Jump Attack a Noahverso (botón derecho) - Efecto Matrix slow-motion */
 .noah-sprite-jumpattack {
   background-size: 1024px 64px; /* 16 frames de 64px */
-  animation: noahJumpAttackPosition 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
+  animation:
+    noahJumpAttackPosition 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
     noahAttackFrames 2s steps(16) 1;
   animation-fill-mode: both;
 }
@@ -305,7 +314,8 @@
 .noah-sprite-walking3 {
   bottom: 96px;
   background-size: 256px 64px; /* 4 frames de 64px */
-  animation: noahWalk3Position 1s linear forwards,
+  animation:
+    noahWalk3Position 1s linear forwards,
     noahWalkFrames 0.6s steps(4) infinite;
   animation-fill-mode: both;
 }
@@ -323,7 +333,8 @@
 .noah-sprite-running3 {
   bottom: 96px;
   background-size: 256px 64px; /* 4 frames de 64px */
-  animation: noahRun3Position 1s linear forwards,
+  animation:
+    noahRun3Position 1s linear forwards,
     noahRunFrames 0.4s steps(4) infinite;
   animation-fill-mode: both;
 }
@@ -362,7 +373,8 @@
   bottom: 96px;
   background-size: 256px 64px;
   transform: scaleX(-1);
-  animation: noahDisappearGlitch 1.5s ease-out forwards,
+  animation:
+    noahDisappearGlitch 1.5s ease-out forwards,
     noahRestFrames 1s steps(4) infinite;
 }
 
@@ -420,10 +432,12 @@
   z-index: 999;
   pointer-events: none;
   object-fit: contain;
-  image-rendering: -moz-crisp-edges; /* webkit-optimize-contrast already included for Edge */
-  image-rendering: -webkit-optimize-contrast; /* Edge support */
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
   image-rendering: pixelated;
-  animation: enemyFloat 2s ease-in-out infinite, enemyAppear 0.5s ease-out;
+  animation:
+    enemyFloat 2s ease-in-out infinite,
+    enemyAppear 0.5s ease-out;
 }
 
 .noah-enemy-hit {
@@ -507,7 +521,8 @@
     top: 17px !important;
     bottom: auto !important;
     background-size: 256px 64px !important;
-    animation: noahAppearMobile 1s linear forwards,
+    animation:
+      noahAppearMobile 1s linear forwards,
       noahWalkFrames 0.6s steps(4) infinite !important;
   }
 
@@ -533,7 +548,8 @@
   .noah-sprite-falling-mobile {
     bottom: auto !important;
     background-size: 320px 64px !important;
-    animation: noahFallMobile 1.2s cubic-bezier(0.33, 0, 0.67, 1) forwards,
+    animation:
+      noahFallMobile 1.2s cubic-bezier(0.33, 0, 0.67, 1) forwards,
       noahJumpFrames 1.2s steps(5) 1 !important;
   }
 
@@ -554,7 +570,8 @@
   .noah-sprite-jump-museo {
     bottom: auto !important;
     background-size: 320px 64px !important;
-    animation: noahJumpLeivaRoll 1s ease-out forwards,
+    animation:
+      noahJumpLeivaRoll 1s ease-out forwards,
       noahJumpFramesFall 1s forwards !important;
   }
 
@@ -582,7 +599,8 @@
     bottom: auto !important;
     transform: translateX(-50%) scaleX(-1) !important; /* Voltear hacia la derecha */
     background-size: 256px 64px !important;
-    animation: noahWalkOnButton 0.8s linear forwards,
+    animation:
+      noahWalkOnButton 0.8s linear forwards,
       noahWalkFrames 0.8s steps(4) infinite !important;
   }
 
@@ -599,7 +617,8 @@
   .noah-sprite-jump-platform {
     bottom: auto !important;
     background-size: 320px 64px !important;
-    animation: noahJumpPlatform 1s ease-out forwards,
+    animation:
+      noahJumpPlatform 1s ease-out forwards,
       noahJumpFrames 1s steps(5) 1 !important;
   }
 
@@ -629,7 +648,8 @@
     bottom: auto !important;
     transform: translateX(-50%) !important; /* Mirando hacia la izquierda */
     background-size: 256px 64px !important;
-    animation: noahWalkOnPlatform 0.5s linear forwards,
+    animation:
+      noahWalkOnPlatform 0.5s linear forwards,
       noahWalkFrames 0.5s steps(4) 1 !important;
   }
 
@@ -646,8 +666,8 @@
   .noah-sprite-jumpattack-mobile {
     bottom: auto !important;
     background-size: 1024px 64px !important;
-    animation: noahJumpAttackMobile 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)
-        forwards,
+    animation:
+      noahJumpAttackMobile 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
       noahAttackFrames 1.5s steps(16) 1 !important;
   }
 
@@ -687,7 +707,8 @@
   .noah-sprite-victory-mobile {
     bottom: auto !important;
     background-size: 320px 64px !important;
-    animation: noahVictoryJumpsGlitch 1.5s ease-in-out forwards,
+    animation:
+      noahVictoryJumpsGlitch 1.5s ease-in-out forwards,
       noahJumpFrames 0.5s steps(5) 3 !important;
     /* Asegura que la base sea la misma que el final de jumpattack-mobile */
     /* Offset para que los pies de Noah queden justo sobre la parte superior del botón */
@@ -779,7 +800,8 @@
     bottom: auto !important;
     transform: translateX(-50%) !important;
     background-size: 256px 64px !important;
-    animation: noahDisappearGlitchMobile 1.5s ease-in-out forwards,
+    animation:
+      noahDisappearGlitchMobile 1.5s ease-in-out forwards,
       noahRestFrames 0.8s steps(4) infinite !important;
   }
 
@@ -825,7 +847,8 @@
     width: 64px !important;
     height: 64px !important;
     z-index: 10000 !important;
-    animation: enemyFloatMobile 2s ease-in-out infinite,
+    animation:
+      enemyFloatMobile 2s ease-in-out infinite,
       enemyAppear 0.5s ease-out !important;
   }
 
@@ -888,10 +911,12 @@
       rgba(88, 41, 167, 0.8)
     );
     border-radius: 6px;
-    box-shadow: 0 0 20px rgba(115, 100, 210, 0.5),
+    box-shadow:
+      0 0 20px rgba(115, 100, 210, 0.5),
       0 0 40px rgba(88, 41, 167, 0.3);
     z-index: 1000;
-    animation: platformFloat 2s ease-in-out infinite,
+    animation:
+      platformFloat 2s ease-in-out infinite,
       platformFadeIn 0.5s ease-out;
   }
 
@@ -928,7 +953,8 @@
   }
 
   .noah-floating-platform.fade-out {
-    animation: platformFloat 2s ease-in-out infinite,
+    animation:
+      platformFloat 2s ease-in-out infinite,
       platformFadeOut 0.8s ease-in forwards !important;
   }
 }

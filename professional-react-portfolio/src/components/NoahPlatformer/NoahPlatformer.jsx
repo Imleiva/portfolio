@@ -76,10 +76,27 @@ const NoahPlatformer = () => {
     let hoverTimeout = null;
     let observerTimeout = null;
 
-    // Intersection Observer para activar animación solo cuando la grid está 100% visible (desktop y móvil)
+    // Desktop: hover sobre el grid
+    const handleMouseEnter = () => {
+      if (!isPlaying && !isMobile && playCountRef.current < maxPlays) {
+        hoverTimeout = setTimeout(() => {
+          playCountRef.current += 1;
+          startSequence();
+        }, 800);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        hoverTimeout = null;
+      }
+    };
+
+    // Móvil: Intersection Observer en la tarjeta de Noahverso
     let observer;
     let attempts = 0;
-    const maxAttempts = 20; // Máximo 2 segundos (20 * 100ms)
+    const maxAttempts = 20;
 
     const setupObserver = () => {
       attempts++;
@@ -90,47 +107,101 @@ const NoahPlatformer = () => {
       }
       if (!portfolioGrid) return;
 
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            // Solo activar si está 100% visible, no está reproduciéndose y no ha alcanzado el límite
-            if (
-              entry.isIntersecting &&
-              entry.intersectionRatio === 1 &&
-              !isPlaying &&
-              playCountRef.current < maxPlays
-            ) {
-              playCountRef.current += 1;
-              startSequence();
-            }
-          });
-        },
-        {
-          threshold: 1.0, // Solo cuando está 100% visible
-          rootMargin: "-200px 0px -200px 0px", // Requiere que esté centrada en viewport
+      if (isMobile) {
+        const allLinks = document.querySelectorAll(
+          '.project-link, a[href*="/portfolio/"]',
+        );
+        const noahversoButton = Array.from(allLinks).find(
+          (link) => link.href && link.href.includes("/portfolio/noahverso"),
+        );
+
+        if (noahversoButton) {
+          const noahversoCard = noahversoButton.closest(".project-card");
+          const elementToObserve = noahversoCard || noahversoButton;
+
+          const leivaRollButton = Array.from(allLinks).find(
+            (link) => link.href && link.href.includes("/portfolio/leiva-roll"),
+          );
+
+          if (leivaRollButton) {
+            const leivaRollRect = leivaRollButton.getBoundingClientRect();
+            const noahversoRect = noahversoButton.getBoundingClientRect();
+            const calculatedPositions = {
+              leivaroll: {
+                top: leivaRollRect.top + window.scrollY - 46,
+                left: leivaRollRect.left + leivaRollRect.width / 2,
+              },
+              noahverso: {
+                top: noahversoRect.top + window.scrollY - 46,
+                left: noahversoRect.left + noahversoRect.width * 0.2,
+              },
+              platform: {
+                top: noahversoRect.top + window.scrollY - 140,
+                left: noahversoRect.left + noahversoRect.width / 2 - 120,
+              },
+            };
+            positionsRef.current = calculatedPositions;
+            setPositions(calculatedPositions);
+          }
+
+          observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (
+                  entry.isIntersecting &&
+                  entry.intersectionRatio === 1 &&
+                  !isPlaying &&
+                  playCountRef.current < maxPlays
+                ) {
+                  playCountRef.current += 1;
+                  startSequence();
+                }
+              });
+            },
+            {
+              threshold: 1.0,
+              rootMargin: "-200px 0px -200px 0px",
+            },
+          );
+          observerRef.current = observer;
+          observer.observe(elementToObserve);
+        } else if (attempts < maxAttempts) {
+          setTimeout(setupObserver, 100);
         }
-      );
-      observerRef.current = observer;
-      observer.observe(portfolioGrid);
+      }
     };
 
-    setupObserver();
+    if (isMobile) {
+      setupObserver();
+    }
+
+    // Desktop event listeners
+    if (portfolioGrid && !isMobile) {
+      portfolioGrid.addEventListener("mouseenter", handleMouseEnter);
+      portfolioGrid.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
+      if (hoverTimeout) clearTimeout(hoverTimeout);
+      if (observerTimeout) clearTimeout(observerTimeout);
       if (observer) observer.disconnect();
+      if (portfolioGrid && !isMobile) {
+        portfolioGrid.removeEventListener("mouseenter", handleMouseEnter);
+        portfolioGrid.removeEventListener("mouseleave", handleMouseLeave);
+      }
     };
   }, [isPlaying, isMobile]);
 
   // Recalcula posiciones justo antes de animar (móvil)
   const recalculatePositions = () => {
     const allLinks = document.querySelectorAll(
-      '.project-link, a[href*="/portfolio/"]'
+      '.project-link, a[href*="/portfolio/"]',
     );
     const leivaRollButton = Array.from(allLinks).find(
-      (link) => link.href && link.href.includes("/portfolio/leiva-roll")
+      (link) => link.href && link.href.includes("/portfolio/leiva-roll"),
     );
     const noahversoButton = Array.from(allLinks).find(
-      (link) => link.href && link.href.includes("/portfolio/noahverso")
+      (link) => link.href && link.href.includes("/portfolio/noahverso"),
     );
     if (leivaRollButton && noahversoButton) {
       const leivaRollRect = leivaRollButton.getBoundingClientRect();
@@ -201,7 +272,7 @@ const NoahPlatformer = () => {
 
     setTimeout(() => {
       console.log(
-        "Fase móvil: jumpattack-mobile - Saltar con ataque a Noahverso"
+        "Fase móvil: jumpattack-mobile - Saltar con ataque a Noahverso",
       );
       setCurrentPhase("jumpattack-mobile");
       // Golpear al enemigo
@@ -223,7 +294,7 @@ const NoahPlatformer = () => {
       setShowEnemy(false);
       setEnemyHit(false);
       console.log(
-        "✅ Animación finalizada, esperando que el usuario salga del área"
+        "✅ Animación finalizada, esperando que el usuario salga del área",
       );
     }, 8000);
   };
@@ -264,7 +335,7 @@ const NoahPlatformer = () => {
 
     setTimeout(() => {
       console.log(
-        "Fase: jumpattack - Saltar con ataque a Noahverso (Matrix slow-mo)"
+        "Fase: jumpattack - Saltar con ataque a Noahverso (Matrix slow-mo)",
       );
       setCurrentPhase("jumpattack");
       // Golpear al enemigo cuando Noah ataca (65% del salto para coincidir con la bola)
